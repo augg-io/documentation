@@ -1,0 +1,22 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+.vscode/
+.idea/
+
+
+venv/
+.env/
+__pycache__/
+
+node_modules/
+
+site/          # MkDocs
+public/        # Hugo / Gatsby
+dist/
+
+*.log
+*.tmp
+*.swp
