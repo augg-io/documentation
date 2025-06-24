@@ -72,5 +72,5 @@ Google API Key is needed in your Unity application, so it can resolve previously
 
        3\. Copy and paste the API key inside the Unity Editor (see [Setting up ARCoreExtensions chapter in this manual](https://docs.google.com/document/d/12trUKJT-UeZsMqxnjMmGPVYrCOxLGEnHuWHZK9IzBg4/edit#heading=h.kjldre3nmqjf))
 
-| Congratulations, you’ve made it to the end\! Need a reminder of what you’ve done earlier in the guide? The previous part is right here: [01 - Setting up augg.io in a project](01_setting_up_auggio_in_a_project.md) The next part of the guide awaits you here:  [03 - Start using augg.io](03_start_using_auggio.md) |
+| Congratulations, you’ve made it to the end! Need a reminder of what you’ve done earlier in the guide? The previous part is right here: [01 - Setting up augg.io in a project](01_setting_up_auggio_in_a_project.md) The next part of the guide awaits you here:  [03 - Start using augg.io](03_start_using_auggio.md) |
 | :---- |
