@@ -98,7 +98,7 @@ After the data is imported a few changed can be noticed:
 
 - It generates our custom Game Object Hierarchy. See [**Exploring the experience hierarchy**](#exploring-the-experience-hierarchy) chapter for more information.
 
-- It creates some .json files in the file system inside the **Assets/[augg.io/data](http://augg.io/data)** folder \- see [**Automatically generated files**](#automatically-generated-files) chapter for more information.
+- It creates some .json files in the file system inside the **Assets/augg.io/data** folder \- see [**Automatically generated files**](#automatically-generated-files) chapter for more information.
 
 - The Import scene from the server button becomes hidden and there are some additional actions instead.
 
@@ -335,11 +335,11 @@ The second error can be resolved by clicking on the **Try to fix** button. Pleas
 
 # **Automatically generated files**
 
-When importing or updating a scene from server augg.io plugin automatically generates some files inside **Assets/[augg.io/data](http://augg.io/data)** directory.
+When importing or updating a scene from server augg.io plugin automatically generates some files inside **Assets/augg.io/data** directory.
 
 ## **Experience files**
 
-Plugin generates a file for each experience data on import under **Assets/[augg.io/data](http://augg.io/data)/\<organization\_id\>/experiences** folder, which contains the state of data after the last sync with the server. Using the contents of this file augg.io plugin is able to detect local changes. If the same experience is edited on multiple devices and the changes could not be uploaded to the server after each set of changes (e.g. because the app is already live), these files need to be shared between these devices e.g. via VCS (Version control system).
+Plugin generates a file for each experience data on import under **Assets/augg.io/data/\<organization\_id\>/experiences** folder, which contains the state of data after the last sync with the server. Using the contents of this file augg.io plugin is able to detect local changes. If the same experience is edited on multiple devices and the changes could not be uploaded to the server after each set of changes (e.g. because the app is already live), these files need to be shared between these devices e.g. via VCS (Version control system).
 
 #### Removing unused experience files
 
@@ -349,7 +349,7 @@ If you wish to permanently delete the experience files, please remove experience
 
 ## **Mesh data files**
 
-After downloading meshes, the augg.io plugin creates files under the **Assets/[augg.io/data](http://augg.io/data)/mesh\_data** folder. These files can also be shared between devices (e.g via VCS) but it is not necessary, since the meshes cannot be changed \= do not hold any state and can be always downloaded again on other devices. 
+After downloading meshes, the augg.io plugin creates files under the **Assets/augg.io/data/mesh\_data** folder. These files can also be shared between devices (e.g via VCS) but it is not necessary, since the meshes cannot be changed \= do not hold any state and can be always downloaded again on other devices. 
 
 These files can also be quite big, so if using VCS like Git, you may not want to include them. With the information said before, they can safely be put among ignored files (e.g .gitignore).
 
