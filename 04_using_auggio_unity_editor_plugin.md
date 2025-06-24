@@ -8,7 +8,7 @@
 
 Our Unity Editor plugin extends Unity Editor with functionality related to augg.io. Its purpose is to fetch data our users capture using the scanning app and import, display and edit them inside Unity Editor. It detects changes users do to their experiences and allows them to upload them to the server. As a result users don't have to rebuild their applications and are able to see their tweaks immediately inside the app. Last but not least our plugin validates the structure of data and its representation in the Unity scene  and ensures that it stays consistent.
 
-[Quick video  tutorial on how to use Unity with our scanning app](https://youtu.be/2RPHbdd1y3A?si=bkHJXKmxSnq7Aves)
+[Quick video  tutorial on how to use Unity with our scanning app](https://www.youtube.com/watch?v=2RPHbdd1y3A)
 
 # **Getting started**
 
@@ -16,7 +16,7 @@ Our Unity Editor plugin extends Unity Editor with functionality related to augg.
 
 If using our example project, there is no need to install anything. Plugin is already part of this project and all that is needed is to follow the steps in [Setting up augg.io](01_setting_up_auggio_in_a_project.md) guide.
 
-If installing augg.io to an existing project please follow the steps described [here (chapter Installing augg.io)](00_create_an_empty_projectsetting_up_auggio_in_a_project.md) and then  [Setting up augg.io](01_setting_up_auggio_in_a_project.md) guide.
+If installing augg.io to an existing project please follow the steps described [here](00_create_an_empty_projectsetting_up_auggio_in_a_project.md) and then  [Setting up augg.io](01_setting_up_auggio_in_a_project.md) guide.
 
 ## **Signing in**
 
@@ -103,10 +103,10 @@ After the data is imported a few changed can be noticed:
 - The Import scene from the server button becomes hidden and there are some additional actions instead.
 
 | ![](images/img_04/image12.png)
-Validate scene \[4.2.A\] This button will validate the integrity of the scene. It shows a special window where the problematic game objects (if any) are displayed. See [Data Validation](#data-validation) chapter for more information. Upload local changes to server \[4.2.B\] This button shows only if there are any local changes present in the [Local Changes \[4.3\]](#local-scene-changes-[4.3]) section. It tries to upload local changes done to the experience to the server. It does the validation process before uploading so it won’t accidentally upload invalid data. If validation succeeds the local changes are uploaded to the server. However if the server has changes (e.g. someone else edited the experience after you last updated it) it asks if it should overwrite the server changes. Vice versa, local changes can be discarded (and the server state can be kept) by using [Update scene from server button \[4.2.C\]](#update-scene-from-server-[4.2.c]).  *Unfortunately there is no merging mechanism of the changes yet. So it is always keep yours or keep theirs. See [Known issues](#known-issues) chapter for more information.* Update scene from server \[4.2.C\] Updates experience data from the server. If there are any local changes, it will ask whether to discard them or not. Server changes status \[4.2.D\] Shows whether there are changes to the experience data on the server against the local state. If there is a green check mark the local state matches the server state. If not, the server state is different and updating the scene from server [\[4.2.C\]](#update-scene-from-server-[4.2.c]) should be considered. |
+Validate scene \[4.2.A\] This button will validate the integrity of the scene. It shows a special window where the problematic game objects (if any) are displayed. See [Data Validation](#data-validation) chapter for more information. Upload local changes to server \[4.2.B\] This button shows only if there are any local changes present in the [Local Changes \[4.3\]](#local-scene-changes-43) section. It tries to upload local changes done to the experience to the server. It does the validation process before uploading so it won’t accidentally upload invalid data. If validation succeeds the local changes are uploaded to the server. However if the server has changes (e.g. someone else edited the experience after you last updated it) it asks if it should overwrite the server changes. Vice versa, local changes can be discarded (and the server state can be kept) by using Update scene from server button \[4.2.C\].  *Unfortunately there is no merging mechanism of the changes yet. So it is always keep yours or keep theirs. See [Known issues](#known-issues) chapter for more information.* Update scene from server \[4.2.C\] Updates experience data from the server. If there are any local changes, it will ask whether to discard them or not. Server changes status \[4.2.D\] Shows whether there are changes to the experience data on the server against the local state. If there is a green check mark the local state matches the server state. If not, the server state is different and updating the scene from server \[4.2.C\] should be considered. |
 | ----- |
 
-### Local Scene Changes \[4.3\] {#local-scene-changes-[4.3]}
+### Local Scene Changes \[4.3\]
 
 This section tracks whether there are any supported local changes to the experience \- see [**Local scene changes detection**](#local-scene-changes-detection) chapter for more information. It then shows the changes in a list. 
 
@@ -132,7 +132,7 @@ This section displays the anchors that are assigned to the experience. For each 
 
 If there are any meshes that are not present in the file system, this button will download them from our server and save them so location can be displayed in the scene.
 
-# **Exploring the experience hierarchy** {#exploring-the-experience-hierarchy}
+# **Exploring the experience hierarchy**
 
 After importing experience into the current scene, augg.io plugin generates specific game object hierarchy inside the Hierarchy tab. The top level object should have name **\[Experience\] Experience name** and should have **AuggioExperience** script attached to it. Let’s explain what the children of that game object represent and how they work.
 
@@ -333,7 +333,7 @@ You can also just create a new game object as a child of any \[Object\] game obj
 First one can be resolved by specifying the name inside the Placeholder Name text field.   
 The second error can be resolved by clicking on the **Try to fix** button. Please note that if the object is not a child of \[Object\] game object, the fixing process will not be successful.
 
-# **Automatically generated files** {#automatically-generated-files}
+# **Automatically generated files**
 
 When importing or updating a scene from server augg.io plugin automatically generates some files inside **Assets/[augg.io/data](http://augg.io/data)** directory.
 
@@ -363,7 +363,7 @@ Please note that anchors can be shared between experiences, so deleting meshes c
 
 However meshes are not crucial for augg.io to run, they are only used as visual reference in the scene view. You can always redownload them if needed.
 
-# **Local Scene Changes Detection** {#local-scene-changes-detection}
+# **Local Scene Changes Detection**
 
 Plugin detects supported local changes that have been done since the last update (sync) from the server. 
 
@@ -395,7 +395,7 @@ Supported changes are:
 | Changing assigned anchors or names of objects have to be done in the Inspector via AuggioObjectTracker or AuggioObjectPlaceholderModel script properties in order to be detected. |
 | :---- |
 
-# **Data validation** {#data-validation}
+# **Data validation**
 
 When trying to upload local changes to the server or click on Validate scene in augg.io Editor Plugin window, augg.io permors data and scene validation. If any objects under Experience objects in the scene have errors, it will be displayed in the validation window. Common issues are e.g.
 
@@ -446,7 +446,7 @@ Although CTRL \+ Z should not corrupt the Experience hierarchy, it is possible t
 
 Do not rename the objects directly in Hierarchy but using property in AuggioObjectTracker or AuggioObjectPlaceholderModel script in the Inspector tab. If the object is renamed directly it won’t be considered as a local change to the name of that object.
 
-# **Known Issues** {#known-issues}
+# **Known Issues**
 
 ## **Losing local changes when updating from server and vice versa**
 
