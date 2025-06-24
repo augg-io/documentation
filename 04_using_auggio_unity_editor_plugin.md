@@ -454,7 +454,7 @@ Currently augg.io does not have a mechanism that will merge the changes done to 
 
 ## **Corrupted experience data**
 
-Sometimes the data becomes corrupted when the user does an unexpected action. **We are actively working to cover all the edge cases which may happen during editing the experience**. If you manage to break it and you know how that happened, please fill in a report in \#bug-reporting channel on our discord\!  [https://discord.gg/RBYyFdDw](https://discord.gg/RBYyFdDw) 
+Sometimes the data becomes corrupted when the user does an unexpected action. **We are actively working to cover all the edge cases which may happen during editing the experience**. If you manage to break it and you know how that happened, please fill in a report in \#bug-reporting channel on our discord\!  [https://discord.gg/QmQxj7br](https://discord.gg/QmQxj7br) 
 
 Unfortunately when this happens the only resolution is to delete and re import the experience. And if you manage (due to some uncovered edge case) to upload such a corrupted experience on a server it may entirely destroy the data for everyone and you may need to start from scratch. So please be mindful of errors displayed in the console and our Editor window and make sure there are no errors before uploading the changes to the server\!
 
