@@ -22,8 +22,8 @@ Example project should come with pre-installed augg.io packages. Please check **
 
    
 
-| Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project](https://docs.google.com/document/d/1Yy_wTvDfwrxhLDoGXqjBlEeM5hvkOm9YVP8dkeb8WGk/edit?usp=sharing). |
+| Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project](https://github.com/augg-io/documentation/blob/main/Upgrading_ARCoreExtensions_in_the_project.md). |
 | :---- |
 
-| Congratulations, you’ve made it to the end\! Please, continue with [01 - Setting up augg.io in a project](https://docs.google.com/document/d/12trUKJT-UeZsMqxnjMmGPVYrCOxLGEnHuWHZK9IzBg4/edit#heading=h.kbbbrcpbywa6) |
+| Congratulations, you’ve made it to the end\! Please, continue with [01 - Setting up augg.io in a project](https://github.com/augg-io/documentation/blob/main/01_setting_up_auggio_in_a_project.md) |
 | :---- |
