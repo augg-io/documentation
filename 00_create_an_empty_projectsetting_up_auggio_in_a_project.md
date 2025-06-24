@@ -69,7 +69,7 @@
 
 9. Click the **\+** button again and find the path to [**augg.io SDK** tarball](https://drive.google.com/drive/folders/1G6YQdCL6hBLntgNW85MH4Kbq-uW5eKXu) (tar.gz file extensions) and install into the project.
 
-| Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project](https://docs.google.com/document/d/1Yy_wTvDfwrxhLDoGXqjBlEeM5hvkOm9YVP8dkeb8WGk/edit?usp=sharing). |
+| Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project](https://github.com/augg-io/documentation/blob/main/Upgrading_ARCoreExtensions_in_the_project.md). |
 | :---- |
 
 ### Setting up URP
