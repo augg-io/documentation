@@ -2,7 +2,7 @@
 
 ## augg.io
 
-If you are using example project start with [Setting up example project](https://docs.google.com/document/d/1cR3WfNzGNMeHizVxRGqqJPKNSKlpdh2H8EDvVG09zR0/edit) first.
+If you are using example project start with [Setting up example project]([https://docs.google.com/document/d/1cR3WfNzGNMeHizVxRGqqJPKNSKlpdh2H8EDvVG09zR0/edit](https://github.com/augg-io/documentation/blob/main/01_setting_up_auggio_in_a_project.md)) first.
 
 ### Setting up ARCore Extensions
 
@@ -15,7 +15,7 @@ If you are using example project start with [Setting up example project](https:/
 4. Set **Authentication Strategy** to **API key**  
    ![](images/img_01/image5.png)
 
-5. Fill in your [**Google Cloud Anchors API key**](https://docs.google.com/document/d/1IrkCMhkvFFK1PWj0Frs_HYE351KOwuqk1l8GQAhIT_8/edit#heading=h.kbbbrcpbywa6)**.**
+5. Fill in your [**Google Cloud Anchors API key**](https://github.com/augg-io/documentation/blob/main/02_creating_google_service_account_and_getting_google_api_key.md)**.**
 
 6. Go to **Assets \- External Dependency Manager \- Android** and click **Force Resolve**
 
