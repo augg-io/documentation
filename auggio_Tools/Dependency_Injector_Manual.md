@@ -6,7 +6,7 @@ Professional dependency injection framework for Unity.
 
 1. Import the downloaded .unitypackage into your Unity project:  
    * Open your Unity project  
-   * Go to Assets \> Import Package \> Custom Package  
+   * Go to Assets > Import Package > Custom Package  
    * Select the downloaded DependencyInjector.unitypackage  
    * Ensure all files are selected in the import window  
    * Click 'Import'
@@ -14,7 +14,7 @@ Professional dependency injection framework for Unity.
 ## **Setup**
 
 1. **Script Execution Order**  
-   * Open Edit \> Project Settings \> Script Execution Order  
+   * Open Edit > Project Settings > Script Execution Order  
    * Add DependencyInjectorSetup  
    * Set it to execute before Default Time  
    * This step is **required** to ensure proper injection order  
@@ -29,37 +29,59 @@ Professional dependency injection framework for Unity.
 
 ## **Attributes**
 
-### **\[Bean\]**
+### **[Bean]**
 
 * Marks classes used in the injection process  
 * Creates singletons automatically  
 * No need to call `new` or `AddComponent`  
 * Inherits from Unity's PreserveAttribute for IL2CPP support
 
-### **\[Injected\]**
+### **[Injected]**
 
 * Marks fields for direct class injection  
 * Cannot be used with interface types  
-* Example: \`\`\`csharp \[Bean\] public class MyService { public void DoSomething() { } }
+* Example:
 
-public class MyComponent : MonoBehaviour { \[Injected\] private MyService myService;
+```csharp
+[Bean]
+public class MyService {
+  public void DoSomething() {
+  }
+}
 
-1. void Start()  
-2. {  
-3.     Injector.Instance.Inject(this);  
-   }
+public class MyComponent : MonoBehaviour {
 
-} \`\`\`
+  [Injected] private MyService myService;
 
-### **\[InjectedInterface\]**
+  void Start() {  
+    Injector.Instance.Inject(this);  
+  }
+
+}
+```
+
+### **[InjectedInterface]**
 
 * Marks fields for interface injection  
 * Requires explicit implementation type  
-* Example: \`\`\`csharp public interface IMyService { void DoSomething(); }
+* Example:
 
-\[Bean\] public class MyServiceImpl : IMyService { public void DoSomething() { } }
+```csharp
+public interface IMyService {
+  void DoSomething();
+}
 
-public class MyComponent : MonoBehaviour { \[InjectedInterface(typeof(MyServiceImpl))\] private IMyService myService; } \`\`\`
+[Bean] public class MyServiceImpl : IMyService {
+  public void DoSomething() { }
+}
+
+public class MyComponent : MonoBehaviour {
+  
+  [InjectedInterface(typeof(MyServiceImpl))]
+  private IMyService myService;
+
+}
+```
 
 ## **Build Considerations and Code Stripping**
 
@@ -76,7 +98,7 @@ When building with IL2CPP, Unity's build process includes an optimization step t
 
 ### **Built-in Protection**
 
-The \[Bean\] attribute inherits from Unity's \[Preserve\] attribute, which automatically protects marked classes from being stripped. This means: \- Classes marked with \[Bean\] are automatically preserved \- Their public methods and properties are preserved \- Fields marked with \[Injected\] or \[InjectedInterface\] in these classes are preserved
+The [Bean] attribute inherits from Unity's [Preserve] attribute, which automatically protects marked classes from being stripped. This means: - Classes marked with [Bean] are automatically preserved - Their public methods and properties are preserved - Fields marked with [Injected] or [InjectedInterface] in these classes are preserved
 
 ### **Additional Protection When Needed**
 
@@ -88,11 +110,8 @@ In some cases, you might need to add extra protection:
 
 ### **When to Add Protection**
 
-Add the \[Preserve\] attribute when: \- Classes are only referenced through reflection \- You see missing type exceptions in builds \- Injection stops working in IL2CPP builds \- You're using complex dependency chains
+Add the [Preserve] attribute when: - Classes are only referenced through reflection - You see missing type exceptions in builds - Injection stops working in IL2CPP builds - You're using complex dependency chains
 
 ### **Build Testing**
 
-Always test your dependency injection setup in: 1\. Development builds 2\. IL2CPP builds 3\. Different platform builds 4\. Release builds with code stripping enabled
-
-4. 
-
+Always test your dependency injection setup in: 1. Development builds 2. IL2CPP builds 3. Different platform builds 4. Release builds with code stripping enabled
