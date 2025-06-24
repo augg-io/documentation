@@ -42,6 +42,8 @@ When you click the "Add field" button, a new dialog opens where you can configur
    - E-mail: For email addresses  
    - Link: For URL storage
    - augg.io Object Reference: For linking collection row data to specific augg.io object
+  
+![](images/img_using_collections/img3.png)
 
 ### **Field Type Details**
 
@@ -56,7 +58,7 @@ The Text field type provides the following configuration options:
 - Placeholder: Add helper text that appears when the field is empty  
 - Max Length: Set a character limit for the field
 
-![](images/img_using_collections/img3.png)
+![](images/img_using_collections/img4.png)
 
 #### **Number Field**
 
@@ -70,7 +72,7 @@ The Number field type provides the following configuration options:
 - Check maximum value?: Toggle to enable maximum value validation  
 - Maximum value: Set the highest allowed value (when maximum value check is enabled) 
 
-![](images/img_using_collections/img4.png)
+![](images/img_using_collections/img5.png)
 
 #### **Boolean Field**
 
@@ -79,7 +81,7 @@ The Boolean field type provides simple true/false configuration:
 - Field name: The identifier for your field  
 - Default value: Toggle to set the default state (true/false)
 
-![](images/img_using_collections/img5.png)
+![](images/img_using_collections/img6.png)
 
 #### **Color Field**
 
@@ -89,7 +91,7 @@ The Color field type provides color selection configuration:
 - Is required?: Toggle to make the field mandatory  
 - Default value: Color picker to set the default color
 
-![](images/img_using_collections/img6.png)
+![](images/img_using_collections/img7.png)
 
 #### **Date Field**
 
@@ -101,7 +103,7 @@ The Date field type provides datetime configuration with UTC handling:
 - Min date (UTC): Set the earliest allowed date/time (input in local time, displays in UTC)  
 - Max date (UTC): Set the latest allowed date/time (input in local time, displays in UTC) Note: All date inputs are entered in local time but are stored and displayed in UTC format.
 
-![](images/img_using_collections/img8.png)
+![](images/img_using_collections/img9.png)
 
 #### **E-mail Field**
 
@@ -111,7 +113,7 @@ The E-mail field type provides email address configuration:
 - Is required?: Toggle to make the field mandatory  
 - Default value: Set a default email address.
 
-![](images/img_using_collections/img9.png)
+![](images/img_using_collections/img10.png)
 
 #### **Link Field**
 
@@ -122,7 +124,7 @@ The Link field type provides URL configuration:
 - Default value: Set a default URL  
 - Allow http?: Toggle to allow non-https URLs (disabled by default for security)
 
-![](images/img_using_collections/img10.png)
+![](images/img_using_collections/img11.png)
 
 #### **Option Field**
 
@@ -132,7 +134,7 @@ The Option field type allows you to:
 - Is required?: Toggle to make the field mandatory  
 - Options: Add and manage a list of predefined choices.
 
-![](images/img_using_collections/img7.png)
+![](images/img_using_collections/img8.png)
 
 #### **augg.io Object Reference Field**
 
@@ -151,7 +153,7 @@ Once your schema is defined, you can start adding items to your collection:
 3. Fill in the form according to your schema  
 4. Click "Save" to store the item
 
-![](images/img_using_collections/img11.png)
+![](images/img_using_collections/img12.png)
 
 ### **Editing Items**
 
@@ -161,7 +163,7 @@ To modify existing items:
 2. Update the values in the form  
 3. Save your changes
 
-![](images/img_using_collections/img12.png)
+![](images/img_using_collections/img13.png)
 
 ## **Technical Integration**
 
