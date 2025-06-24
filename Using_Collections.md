@@ -165,8 +165,6 @@ To modify existing items:
 2. Update the values in the form  
 3. Save your changes
 
-![](images/img_using_collections/img14.png)
-
 ## **Technical Integration**
 
 ### **Setting Up Collections in Unity**
