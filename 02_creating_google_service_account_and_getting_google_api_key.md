@@ -6,7 +6,7 @@
 
 To be able to host and resolve Google Cloud anchors via augg.io, you need to enable ARCore API in your Google Cloud Console project.
 
-1. Go to **console.cloud.google.com** and login.
+1. Go to **[console.cloud.google.com](https://console.cloud.google.com)** and login.
 
 2. Create new project or select relevant project
 
