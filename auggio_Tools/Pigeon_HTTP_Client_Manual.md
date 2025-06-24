@@ -128,7 +128,7 @@ public class MyAuthLayer : AbstractAuthLayer {
   }
 
   public override void Process(PigeonRequest authorizedRequest) {
-    Handle 401 responses, refresh tokens, etc.
+    // Handle 401 responses, refresh tokens, etc.
     // Call authorizedRequest.Send() after handling 
   }
 }
