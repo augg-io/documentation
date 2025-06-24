@@ -35,13 +35,28 @@ Table of Contents
 
 Initialize the client in your application startup code:
 
-| Pigeon.Initialize()     .SetHostname("https://api.example.com")     .SetDefaultHeaders(new Dictionary\<string, string\> {         {"Accept", "application/json"},         {"Content-Type", "application/json"}     })     .SetDefaultAuthLayer(new AuthLayer())     .SetOnAuthorizationError(HandleAuthError)     .Log(RequestLogger.LOG\_LEVEL.ALL); |
-| :---- |
+```csharp
+Pigeon.Initialize()
+  .SetHostname("https://api.example.com")
+  .SetDefaultHeaders(new Dictionary<string, string> {
+    {"Accept", "application/json"},
+    {"Content-Type", "application/json"}
+  })
+  .SetDefaultAuthLayer(new AuthLayer())
+  .SetOnAuthorizationError(HandleAuthError)
+  .Log(RequestLogger.LOG_LEVEL.ALL);
+```
 
 Make your first request:
 
-| Pigeon.Post("/users")     .SendJson()     .SetBody(JsonUtility.ToJson(userModel))     .SetSuccessCallback(OnSuccess)     .SetErrorCallback(OnError)     .Send(); |
-| :---- |
+```csharp
+Pigeon.Post("/users")
+  .SendJson()
+  .SetBody(JsonUtility.ToJson(userModel))
+  .SetSuccessCallback(OnSuccess)
+  .SetErrorCallback(OnError)
+  .Send();
+```
 
 ## **Configuration**
 
@@ -72,13 +87,31 @@ The `bool` parameter controls whether to use default configuration (true by defa
 
 ### **POST Request with JSON**
 
-| Pigeon.Post("/account/link")     .SendJson()     .SetBody(JsonUtility.ToJson(new AuthenticationRequest(         token: "Basic bWFyYTI6djFjajN2MWM=",         type: "USERNAME\_PASSWORD"     )))     .SetSuccessCallback(response \=\> {         Debug.Log($"Success: {response}");     })     .SetErrorCallback(error \=\> {         Debug.LogError($"Error {error.GetCode()}: {error.GetMessage()}");     })     .Send();  |
-| :---- |
+```csharp
+Pigeon.Post("/account/link")
+  .SendJson()
+  .SetBody(JsonUtility.ToJson(new AuthenticationRequest(
+    token: "Basic bWFyYfoperkprkofoerWM=",
+    type: "USERNAME_PASSWORD"
+  )))
+  .SetSuccessCallback(response => {
+    Debug.Log($"Success: {response}");
+  })
+  .SetErrorCallback(error => {
+    Debug.LogError($"Error {error.GetCode()}: {error.GetMessage()}");
+  })
+  .Send();
+```
 
 ### **File Download**
 
-| Pigeon.Get("/files/document.pdf")     .IsFile(fileData \=\> {         // Handle downloaded file data     })     .Send(); |
-| :---- |
+```csharp
+Pigeon.Get("/files/document.pdf")
+  .IsFile(fileData => {
+    // Handle downloaded file data
+  })
+  .Send();
+```
 
 ## 
 
@@ -88,8 +121,18 @@ Implement `AbstractAuthLayer` to handle authentication:
 
 ### 
 
-|  public class MyAuthLayer : AbstractAuthLayer {     public override string GetAuthorizationHeaderValue()     {         return $"Bearer {GetCurrentToken()}";     }     public override void Process(PigeonRequest authorizedRequest)     {         // Handle 401 responses, refresh tokens, etc.         // Call authorizedRequest.Send() after handling     } } |
-| :---- |
+```csharp
+public class MyAuthLayer : AbstractAuthLayer {
+  public override string GetAuthorizationHeaderValue() {
+    return $"Bearer {GetCurrentToken()}";
+  }
+
+  public override void Process(PigeonRequest authorizedRequest) {
+    Handle 401 responses, refresh tokens, etc.
+    // Call authorizedRequest.Send() after handling 
+  }
+}
+```
 
 ## **API Reference**
 
