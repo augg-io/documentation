@@ -12,7 +12,9 @@ To create a new collection:
 
 1. Navigate to your application in the CMS  
 2. Click the plus button and select "New Collection"  
-3. Enter a name for your collection \[SCREENSHOT: New collection creation interface\]
+3. Enter a name for your collection
+
+![](images/img_using_collections/img1.png)
 
 ## **Managing Collection Schema**
 
@@ -21,7 +23,9 @@ The schema defines the structure of your collection items. To set up a schema:
 1. Select your collection from the list  
 2. Click "Edit Schema" to open the schema editor  
 3. You'll see the schema editor interface with a "Collection fields" heading  
-4. Click the "Add field" button to start adding fields to your schema \[SCREENSHOT: Initial schema editor interface showing the "Add field" button\]
+4. Click the "Add field" button to start adding fields to your schema
+
+![](images/img_using_collections/img2.png)
 
 ### **Adding Fields to Schema**
 
@@ -36,7 +40,8 @@ When you click the "Add field" button, a new dialog opens where you can configur
    - Option: For predefined choices  
    - Date: For date values  
    - E-mail: For email addresses  
-   - Link: For URL storage \[SCREENSHOT: Field type selection dropdown\]
+   - Link: For URL storage
+   - augg.io Object Reference: For linking collection row data to specific augg.io object
 
 ### **Field Type Details**
 
@@ -49,7 +54,9 @@ The Text field type provides the following configuration options:
 - Is text area?: Toggle to enable multi-line text input  
 - Default text: Set a default value for the field  
 - Placeholder: Add helper text that appears when the field is empty  
-- Max Length: Set a character limit for the field \[SCREENSHOT: Text field configuration options\]
+- Max Length: Set a character limit for the field
+
+![](images/img_using_collections/img3.png)
 
 #### **Number Field**
 
@@ -61,14 +68,18 @@ The Number field type provides the following configuration options:
 - Check minimum value?: Toggle to enable minimum value validation  
 - Minimum value: Set the lowest allowed value (when minimum value check is enabled)  
 - Check maximum value?: Toggle to enable maximum value validation  
-- Maximum value: Set the highest allowed value (when maximum value check is enabled) \[SCREENSHOT: Number field configuration options\]
+- Maximum value: Set the highest allowed value (when maximum value check is enabled) 
+
+![](images/img_using_collections/img4.png)
 
 #### **Boolean Field**
 
 The Boolean field type provides simple true/false configuration:
 
 - Field name: The identifier for your field  
-- Default value: Toggle to set the default state (true/false) \[SCREENSHOT: Boolean field configuration options\]
+- Default value: Toggle to set the default state (true/false)
+
+![](images/img_using_collections/img5.png)
 
 #### **Color Field**
 
@@ -76,7 +87,9 @@ The Color field type provides color selection configuration:
 
 - Field name: The identifier for your field  
 - Is required?: Toggle to make the field mandatory  
-- Default value: Color picker to set the default color \[SCREENSHOT: Color field configuration options\]
+- Default value: Color picker to set the default color
+
+![](images/img_using_collections/img6.png)
 
 #### **Date Field**
 
@@ -86,7 +99,9 @@ The Date field type provides datetime configuration with UTC handling:
 - Is required?: Toggle to make the field mandatory  
 - Default value (UTC): Set the default date/time (input in local time, displays in UTC)  
 - Min date (UTC): Set the earliest allowed date/time (input in local time, displays in UTC)  
-- Max date (UTC): Set the latest allowed date/time (input in local time, displays in UTC) Note: All date inputs are entered in local time but are stored and displayed in UTC format. \[SCREENSHOT: Date field configuration options\]
+- Max date (UTC): Set the latest allowed date/time (input in local time, displays in UTC) Note: All date inputs are entered in local time but are stored and displayed in UTC format.
+
+![](images/img_using_collections/img8.png)
 
 #### **E-mail Field**
 
@@ -94,7 +109,9 @@ The E-mail field type provides email address configuration:
 
 - Field name: The identifier for your field  
 - Is required?: Toggle to make the field mandatory  
-- Default value: Set a default email address \[SCREENSHOT: E-mail field configuration options\]
+- Default value: Set a default email address.
+
+![](images/img_using_collections/img9.png)
 
 #### **Link Field**
 
@@ -103,7 +120,9 @@ The Link field type provides URL configuration:
 - Field name: The identifier for your field  
 - Is required?: Toggle to make the field mandatory  
 - Default value: Set a default URL  
-- Allow http?: Toggle to allow non-https URLs (disabled by default for security) \[SCREENSHOT: Link field configuration options\]
+- Allow http?: Toggle to allow non-https URLs (disabled by default for security)
+
+![](images/img_using_collections/img10.png)
 
 #### **Option Field**
 
@@ -111,7 +130,17 @@ The Option field type allows you to:
 
 - Field name: The identifier for your field  
 - Is required?: Toggle to make the field mandatory  
-- Options: Add and manage a list of predefined choices \[SCREENSHOT: Option field configuration interface\]
+- Options: Add and manage a list of predefined choices.
+
+![](images/img_using_collections/img7.png)
+
+#### **augg.io Object Reference Field**
+
+The augg.io object reference field type allows you to:
+
+- Field name: The identifier for your field
+- Is required?: Toggle to make the field mandatory
+- Unique?: Whether value should be unique in the entire column \[SCREENSHOT: AO field type configuration interface\]
 
 ## **Working with Collection Items**
 
@@ -120,7 +149,9 @@ Once your schema is defined, you can start adding items to your collection:
 1. Select your collection  
 2. Click "New Item"  
 3. Fill in the form according to your schema  
-4. Click "Save" to store the item \[SCREENSHOT: New item form interface\]
+4. Click "Save" to store the item
+
+![](images/img_using_collections/img11.png)
 
 ### **Editing Items**
 
@@ -128,7 +159,9 @@ To modify existing items:
 
 1. Click on the row you want to edit in the collection view  
 2. Update the values in the form  
-3. Save your changes \[SCREENSHOT: Item editing interface\]
+3. Save your changes
+
+![](images/img_using_collections/img12.png)
 
 ## **Technical Integration**
 
@@ -137,11 +170,11 @@ To modify existing items:
 To use collections in your Unity project:
 
 1. Create an empty GameObject in your scene  
-2. Add the CollectionsProvider component to the GameObject \[SCREENSHOT: Adding CollectionsProvider component in Unity Inspector\]
+2. Add the CollectionsProvider component to the GameObject 
 
 The CollectionsProvider has one important setting:
 
-- Initialize On Awake: When enabled, collections will be initialized automatically when the scene starts \[SCREENSHOT: CollectionsProvider settings in Inspector\]
+- Initialize On Awake: When enabled, collections will be initialized automatically when the scene starts.
 
 ### **Initializing Collections**
 
@@ -149,8 +182,10 @@ Collections can be initialized in two ways:
 
 1. Automatic initialization if initializeOnAwake is set to true  
 2. Manual initialization using the Initialize method:  
-     
-   CollectionsProvider.Instance.Initialize();
+
+```csharp
+CollectionsProvider.Instance.Initialize();
+```
 
 ### **Handling Initialization Events**
 
@@ -178,9 +213,8 @@ if (CollectionsProvider.Instance.GetCollectionByName("collectionName", out myCol
 2. Access collection rows:  
      
    - Get all rows: myCollection.Rows  
-   - Get a specific row by ID: myCollection.GetRowById("rowId")
+   - Get a specific row by ID: `myCollection.GetRowById("rowId")`
 
-   
 
 3. Access field values within a row:
 
@@ -195,7 +229,7 @@ Note: Field values are stored as strings and should be converted to appropriate 
 
 The SDK requires a file token for authentication:
 
-- Download the token from [www.augg.io](http://www.augg.io) for your application  
+- Download the token from [www.augg.io](https://www.augg.io) for your application  
 - The token must be present in your project for collections to initialize
 
 ## **Best Practices**
@@ -250,11 +284,9 @@ Collections are particularly useful for managing text content in your applicatio
 
 1. Create a "TextContent" collection with fields:  
      
-   - Key: Text field (required) \- Identifier for the text content  
-   - Content: Text field (required, text area) \- The actual text content  
-   - Category: Text field \- Optional grouping of related texts
-
-   
+   - Key: Text field (required) - Identifier for the text content  
+   - Content: Text field (required, text area) - The actual text content  
+   - Category: Text field =- Optional grouping of related texts
 
 2. Access text content in your Unity scripts:
 
