@@ -7,12 +7,12 @@
 ## **Table of Contents**
 
 1. [Introduction](#introduction)  
-2. [Step 1: Opening the Project in Unity 6](#step-1:-opening-the-project-in-unity-6)  
-3. [Step 2: Confirm Updated Packages](#step-2:-confirm-updated-packages)  
-4. [Step 3: Upgrading ARCore Extensions](#step-3:-arcore-extensions)  
-5. [Step 4: Updating Auggio SDK](#step-4:-updating-auggio-sdk)  
-6. [Step 5: Confirm Final Build](#step-5:-confirm-final-build)  
-7. [Conclusion & Troubleshooting](#conclusion-&-troubleshooting)
+2. [Step 1: Opening the Project in Unity 6](#step-1-opening-the-project-in-unity-6)  
+3. [Step 2: Confirm Updated Packages](#step-2-confirm-updated-packages)  
+4. [Step 3: Upgrading ARCore Extensions](#step-3-arcore-extensions)  
+5. [Step 4: Updating Auggio SDK](#step-4-updating-auggio-sdk)  
+6. [Step 5: Confirm Final Build](#step-5-confirm-final-build)  
+7. [Conclusion & Troubleshooting](#conclusion--troubleshooting)
 
 ## **Introduction**
 
