@@ -156,8 +156,11 @@ Collections can be initialized in two ways:
 
 Subscribe to initialization events to handle success, progress, and errors:
 
-| CollectionsProvider.Instance.OnProviderInitialized \+= HandleInitialized;CollectionsProvider.Instance.OnProviderInitializeError \+= HandleError;CollectionsProvider.Instance.OnProviderInitializedProgress \+= HandleProgress; |
-| :---- |
+```csharp
+CollectionsProvider.Instance.OnProviderInitialized += HandleInitialized;
+CollectionsProvider.Instance.OnProviderInitializeError += HandleError;
+CollectionsProvider.Instance.OnProviderInitializedProgress += HandleProgress;
+```
 
 ### **Accessing Collection Data**
 
@@ -165,8 +168,12 @@ Once initialized, you can access collections and their data:
 
 1. Get a collection by name:
 
-| Collection myCollection;if (CollectionsProvider.Instance.GetCollectionByName("collectionName", out myCollection)) {    // Use myCollection} |
-| :---- |
+```csharp
+Collection myCollection;
+if (CollectionsProvider.Instance.GetCollectionByName("collectionName", out myCollection)) {
+    // Use myCollection
+} 
+```
 
 2. Access collection rows:  
      
@@ -177,8 +184,10 @@ Once initialized, you can access collections and their data:
 
 3. Access field values within a row:
 
-| CollectionRow row \= myCollection.GetRowById("rowId");List\<string\> fieldValues \= row.GetValueByFieldName("fieldName"); |
-| :---- |
+```csharp
+CollectionRow row = myCollection.GetRowById("rowId");
+List<string> fieldValues = row.GetValueByFieldName("fieldName");
+```
 
 Note: Field values are stored as strings and should be converted to appropriate types based on the field's schema definition.
 
@@ -249,8 +258,52 @@ Collections are particularly useful for managing text content in your applicatio
 
 2. Access text content in your Unity scripts:
 
-| public class TextContentManager : MonoBehaviour{    private Collection textCollection;    private Dictionary\<string, string\> textCache \= new Dictionary\<string, string\>();    private void Awake()    {        CollectionsProvider.Instance.OnProviderInitialized \+= HandleCollectionsInitialized;    }    private void OnDestroy()    {        if (CollectionsProvider.Instance \!= null)        {            CollectionsProvider.Instance.OnProviderInitialized \-= HandleCollectionsInitialized;        }    }    private void HandleCollectionsInitialized()    {        if (CollectionsProvider.Instance.GetCollectionByName("TextContent", out textCollection))        {            CacheTexts();        }    }    private void CacheTexts()    {        textCache.Clear();        foreach (CollectionRow row in textCollection.Rows)        {            List\<string\> keyValues \= row.GetValueByFieldName("Key");            List\<string\> contentValues \= row.GetValueByFieldName("Content");                        if (keyValues.Count \> 0 && contentValues.Count \> 0)            {                string key \= keyValues\[0\];                string content \= contentValues\[0\];                                if (\!string.IsNullOrEmpty(key) && \!string.IsNullOrEmpty(content))                {                    textCache\[key\] \= content;                }            }        }    }    public string GetText(string key, string defaultText \= "")    {        string text;        if (textCache.TryGetValue(key, out text))        {            return text;        }        return defaultText;    }} |
-| :---- |
+```csharp
+public class TextContentManager : MonoBehaviour
+{
+    private Collection textCollection;
+    private Dictionary<string, string> textCache = new Dictionary<string, string>();
+    
+    private void Awake() {
+        CollectionsProvider.Instance.OnProviderInitialized += HandleCollectionsInitialized;
+    }
+    
+    private void OnDestroy() {
+        if (CollectionsProvider.Instance != null) {
+            CollectionsProvider.Instance.OnProviderInitialized -= HandleCollectionsInitialized;
+        }
+    }
+       
+    private void HandleCollectionsInitialized() {
+        if (CollectionsProvider.Instance.GetCollectionByName("TextContent", out textCollection)) {
+            CacheTexts();
+        }
+    }
+       
+    private void CacheTexts() {
+        textCache.Clear();
+        foreach (CollectionRow row in textCollection.Rows) {
+            List<string> keyValues = row.GetValueByFieldName("Key");
+            List<string> contentValues = row.GetValueByFieldName("Content");
+            if (keyValues.Count > 0 && contentValues.Count > 0) {
+                string key = keyValues[0];
+                string content = contentValues[0];
+                if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(content)) {
+                    textCache[key] = content;
+                }
+            }
+        }
+    }
+    
+    public string GetText(string key, string defaultText = "") { 
+        string text;
+        if (textCache.TryGetValue(key, out text)) {
+            return text;
+        }
+        return defaultText;
+    }
+}
+```
 
 3. Benefits of this approach:  
    - Content can be updated without code changes  
