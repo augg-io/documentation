@@ -142,7 +142,9 @@ The augg.io object reference field type allows you to:
 
 - Field name: The identifier for your field
 - Is required?: Toggle to make the field mandatory
-- Unique?: Whether value should be unique in the entire column \[SCREENSHOT: AO field type configuration interface\]
+- Unique?: Whether value should be unique in the entire column
+
+![](images/img_using_collections/img12.png)
 
 ## **Working with Collection Items**
 
@@ -153,7 +155,7 @@ Once your schema is defined, you can start adding items to your collection:
 3. Fill in the form according to your schema  
 4. Click "Save" to store the item
 
-![](images/img_using_collections/img12.png)
+![](images/img_using_collections/img13.png)
 
 ### **Editing Items**
 
@@ -163,7 +165,7 @@ To modify existing items:
 2. Update the values in the form  
 3. Save your changes
 
-![](images/img_using_collections/img13.png)
+![](images/img_using_collections/img14.png)
 
 ## **Technical Integration**
 
