@@ -8,7 +8,7 @@ When you initially open the scanning application it can be quite intimidating. I
 
 Watch a quick video on how to use our scanning application: 
 
-[Quick video tutorial on how to scan your environment and create virtual anchors](https://youtu.be/F8ifr3fS2Sw) 
+[Quick video tutorial on how to scan your environment and create virtual anchors](https://youtu.be/2RPHbdd1y3A?si=kaFkTaWZf2KoW8xI) 
 
 # **Before you start**
 
