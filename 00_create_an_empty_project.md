@@ -76,7 +76,7 @@ permalink: /getting_started/create_an_empty_project/
 9. Click the **\+** button again and find the path to [**augg.io SDK** tarball](https://drive.google.com/drive/folders/1G6YQdCL6hBLntgNW85MH4Kbq-uW5eKXu) (tar.gz file extensions) and install into the project.
 
 | Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project]({{ site.baseurl }}/Upgrading_ARCoreExtensions_in_the_project/). |
-| :---- |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 ### Setting up URP
 
@@ -138,7 +138,8 @@ permalink: /getting_started/create_an_empty_project/
 4. Add **InitializeOnSessionTracking** and set the reference to **AuggioTrackingManager**. Do this if you are not using custom initializing logic.
    ![]({{ site.baseurl }}/images/img_00/image12.png)
 
-Congratulations, you've made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/)
+| Congratulations, you've made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/)  |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 [image1]: {{ site.baseurl }}/images/img_00/image16.png
 

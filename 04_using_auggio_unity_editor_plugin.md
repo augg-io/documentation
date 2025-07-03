@@ -391,13 +391,13 @@ Supported changes are:
 **The changes are displayed in the plugin editor window, where can be discarded or uploaded to the server.**
 
 | Transform changes to augg.io objects or its placeholders can be done by simply moving them in the Scene view or changing their Transform component. |
-| :---- |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 
 | Creating and deleting objects or placeholders can also be done intuitively by deleting or creating them in the Experience hierarchy. |
-| :---- |
+|:-------------------------------------------------------------------------------------------------------------------------------------|
 
 | Changing assigned anchors or names of objects have to be done in the Inspector via AuggioObjectTracker or AuggioObjectPlaceholderModel script properties in order to be detected. |
-| :---- |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 # **Data validation**
 
@@ -422,7 +422,7 @@ Some of these errors like missing names must be fixed manually but to some of th
 *Example \- Object placeholder is not assigned to any augg.io object*
 
 | If errors cannot be fixed automatically via the fix button there are probably some issues in the Experience hierarchy. See [Exploring Experience hierarchy](#exploring-the-experience-hierarchy) chapter to see what may be wrong or delete and re import whole experience (please note that this way local changes may be lost) |
-| :---- |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 # **Best Practices**
 
