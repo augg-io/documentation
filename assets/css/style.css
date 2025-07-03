@@ -94,3 +94,11 @@ blockquote {
   background-color: #222 !important;
   color: white !important;
 }
+
+.main-content .anchor-heading svg {
+   color: #FF29C3 !important;
+}
+
+.search-input:focus + .search-label .search-icon {
+   color: #FF29C3 !important;
+}
