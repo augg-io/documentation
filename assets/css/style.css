@@ -42,6 +42,10 @@ a:hover {
   color: #FF29C3 !important;
 }
 
+.search-result-title {
+  color: white !important;
+}
+
 .search-result-rel-url {
   color: #FF29C3 !important;
 }
