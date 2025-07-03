@@ -1,3 +1,11 @@
+---
+layout: default
+title: Pigeon HTTP Client
+nav_order: 2
+parent: augg.io Tools
+permalink: /auggio_Tools/Pigeon_HTTP_Client_Manual/
+---
+
 # **Pigeon HTTP Client**
 
 A powerful, asynchronous HTTP client implementation for Unity that provides a fluent API for making HTTP requests. Designed to simplify HTTP communication in Unity projects with built-in support for authentication, request customization, and error handling.

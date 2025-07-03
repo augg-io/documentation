@@ -1,3 +1,10 @@
+---
+layout: default
+title: Creating Google Service Account and getting Google API Key
+nav_order: 4
+permalink: /02_creating_google_service_account_and_getting_google_api_key/
+---
+
 # **Creating Google Service Account and getting Google API Key**
 
 ## augg.io
@@ -70,7 +77,7 @@ Google API Key is needed in your Unity application, so it can resolve previously
 2. Click Create Credentials and select **API Key**  
    ![](images/img_02/image11.png)
 
-       3\. Copy and paste the API key inside the Unity Editor (see [Setting up ARCoreExtensions chapter in this manual](https://docs.google.com/document/d/12trUKJT-UeZsMqxnjMmGPVYrCOxLGEnHuWHZK9IzBg4/edit#heading=h.kjldre3nmqjf))
+       3\. Copy and paste the API key inside the Unity Editor (see [Setting up ARCoreExtensions chapter in this manual](01_setting_up_auggio_in_a_project#setting-up-arcore-extensions))
 
-| Congratulations, you’ve made it to the end! Need a reminder of what you’ve done earlier in the guide? The previous part is right here: [01 - Setting up augg.io in a project](01_setting_up_auggio_in_a_project.md) The next part of the guide awaits you here:  [03 - Start using augg.io](03_start_using_auggio.md) |
+| Congratulations, you've made it to the end! Need a reminder of what you've done earlier in the guide? The previous part is right here: [01 - Setting up augg.io in a project](01_setting_up_auggio_in_a_project) The next part of the guide awaits you here:  [03 - Start using augg.io](03_start_using_auggio) |
 | :---- |

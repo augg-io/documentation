@@ -1,3 +1,11 @@
+---
+layout: default
+title: Dependency Injector by augg.io
+nav_order: 1
+parent: augg.io Tools
+permalink: /auggio_Tools/Dependency_Injector_Manual/
+---
+
 # **Dependency Injector by augg.io**
 
 Professional dependency injection framework for Unity.

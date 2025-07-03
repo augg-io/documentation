@@ -1,3 +1,10 @@
+---
+layout: default
+title: Creating an empty project
+nav_order: 2
+permalink: /00_create_an_empty_projectsetting_up_auggio_in_a_project/
+---
+
 # **Creating an empty project**
 
 ## augg.io
@@ -132,7 +139,7 @@
 4. Add **InitializeOnSessionTracking** and set the reference to **AuggioTrackingManager**. Do this if you are not using custom initializing logic.  
    ![](images/img_00/image12.png)
 
-| Congratulations, you’ve made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project](01_setting_up_auggio_in_a_project.md) |
+| Congratulations, you've made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project](01_setting_up_auggio_in_a_project) |
 | :---- |
 
 [image1]: images/img_00/image16.png

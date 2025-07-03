@@ -1,6 +1,9 @@
-# 
-
-# 
+---
+layout: default
+title: Upgrading ARCoreExtensions in the project
+nav_order: 11
+permalink: /Upgrading_ARCoreExtensions_in_the_project/
+---
 
 # **Upgrading ARCoreExtensions in the project**
 

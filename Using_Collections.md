@@ -1,3 +1,10 @@
+---
+layout: default
+title: Using Collections
+nav_order: 8
+permalink: /Using_Collections/
+---
+
 # **Using Collections**
 
 ## augg.io

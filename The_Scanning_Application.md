@@ -1,3 +1,10 @@
+---
+layout: default
+title: The Scanning App
+nav_order: 7
+permalink: /The_Scanning_Application/
+---
+
 # **The Scanning App**
 
 ## augg.io
@@ -12,7 +19,7 @@ Watch a quick video on how to use our scanning application:
 
 # **Before you start**
 
-Before you start using the application you should set up a Google service account and provide it to augg.io in our CMS. To do so please follow this [manual](https://github.com/augg-io/documentation/blob/main/02_creating_google_service_account_and_getting_google_api_key.md). If you just want to test the application you can skip this step and continue in the Trial tier. If you do this you won't be able to build the unity project with Trial tier data. Don't worry it is still free even after you set up the service account.
+Before you start using the application you should set up a Google service account and provide it to augg.io in our CMS. To do so please follow this [manual](02_creating_google_service_account_and_getting_google_api_key). If you just want to test the application you can skip this step and continue in the Trial tier. If you do this you won't be able to build the unity project with Trial tier data. Don't worry it is still free even after you set up the service account.
 
 Once you set all of this up you can start creating anchors in your own anchor space and use them as you wish.
 

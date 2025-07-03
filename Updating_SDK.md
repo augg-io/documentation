@@ -1,3 +1,10 @@
+---
+layout: default
+title: How to Update augg.io SDK
+nav_order: 9
+permalink: /Updating_SDK/
+---
+
 # How to Update augg.io SDK
 
 This guide provides step-by-step instructions for updating the augg.io SDK in your Unity project.
