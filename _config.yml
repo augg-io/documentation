@@ -8,7 +8,7 @@ theme: just-the-docs
 
 # Optional but recommended
 color_scheme: dark # or "light"
-# logo: "/assets/logo.png" # place your logo in /assets/ (uncomment and add a logo file if needed)
+logo: "/assets/images/logo.png"
 
 # SEO / Social sharing
 permalink: pretty

@@ -1,15 +1,56 @@
-# Getting Started with augg.io
+# augg.io Documentation
 
-1. First create an empty project using [00 - Create an empty project](00_create_an_empty_project.md) or download our example project and follow [Setting up Example project](01_setting_up_auggio_in_a_project.md)  
-2. After having a ready to go project we need to setup augg.io plugin in the project. Follow [01 - Setting up augg.io in a project](01_setting_up_auggio_in_a_project.md)  
-3. During the process of setting up augg.io you will need to create a Google Service Account and ARCore API Key. When needed follow [02 - Creating Google Service Account and getting Google API Key](02_creating_google_service_account_and_getting_google_api_key.md)  
-4. Now is a great time to start using our scanning app [The Scanning Application](The_Scanning_Application.md) and create your experiences.  
-5. After that you can start using augg.io. [03 - Start using augg.io](03_start_using_auggio.md)  
-6. [04 - Using augg.io Unity Editor Plugin](04_using_auggio_unity_editor_plugin.md)
+This repository contains the official documentation for the augg.io platform, built with Jekyll and the Just the Docs theme.
 
-You can check how to use our **Scanning Application** [The Scanning Application](The_Scanning_Application.md)
+## Documentation Structure
 
-You can check how to use **Collections** for managing dynamic content in your applications. [Using Collections](Using_Collections.md)
+The documentation is organized into the following sections:
 
-You can check how to upgrade your augg.io project to **Unity 6** [Upgrading to Unity 6](Upgrading_to_Unity_6.md)
+1. **Getting Started** - Step-by-step guides for setting up and using augg.io
+   - Creating an empty project
+   - Setting up Example project
+   - Setting up augg.io in a project
+   - Creating Google Service Account and getting Google API Key
+   - Start using augg.io
+   - Using augg.io Unity Editor Plugin
 
+2. **Guides** - Maintenance and upgrade guides
+   - How to Update augg.io SDK
+   - Upgrading to Unity 6
+   - Upgrading ARCoreExtensions in the project
+
+3. **CMS** - Content Management System documentation
+   - Using Collections
+
+4. **The Scanning Application** - Guide for using the augg.io scanning application
+
+5. **augg.io Tools** - Documentation for various tools provided by augg.io
+   - Dependency Injector
+   - Pigeon HTTP Client
+
+## Customization
+
+### Logo
+
+The documentation uses a custom logo located at `assets/images/logo.png`. To update the logo:
+
+1. Replace the file at `assets/images/logo.png` with your desired logo
+2. The logo should be in PNG format with a transparent background
+3. For best results, use an image that is square or slightly wider than tall
+
+### Link Color
+
+The documentation uses a custom link color (#FB039B). This is defined in `assets/css/style.css`.
+
+## Local Development
+
+To run the documentation locally:
+
+1. Install Ruby and Bundler
+2. Run `bundle install` to install dependencies
+3. Run `bundle exec jekyll serve` to start the local server
+4. Visit `http://localhost:4000/documentation/` in your browser
+
+## Publishing
+
+The documentation is automatically published to GitHub Pages when changes are pushed to the main branch.
