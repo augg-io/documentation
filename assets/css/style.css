@@ -1,16 +1,15 @@
 /* Custom styles to override Just the Docs theme */
 
-/* Apply pink color only to content links, not sidebar navigation */
-.main-content a {
+/* Make all links pink by default */
+a {
   color: #FB039B !important;
 }
 
-.main-content a:hover {
+a:hover {
   color: #FB039B !important;
-  text-decoration: underline;
 }
 
-/* Keep sidebar navigation links white */
+/* Override to keep sidebar navigation links white */
 .nav-list a {
   color: inherit !important;
 }
@@ -19,9 +18,8 @@
   color: inherit !important;
 }
 
-/* Make arrows in side navigation and breadcrumbs pink */
-.nav-list .nav-list-item .nav-list-expander svg,
-.breadcrumb-nav-list-item svg {
+/* Make arrows in side navigation pink */
+.nav-list .nav-list-item .nav-list-expander svg {
   color: #FB039B !important;
 }
 

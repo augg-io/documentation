@@ -40,12 +40,10 @@ The documentation uses a custom logo located at `assets/images/logo.png`. To upd
 
 ### Link Color
 
-The documentation uses a custom link color (#FB039B) for:
-- Links in the main content
-- Arrows in the side navigation
-- Arrows in the breadcrumbs
+The documentation uses a custom link color (#FB039B) for all links throughout the site, with the following exceptions:
+- Sidebar navigation links remain white (while their arrows are pink)
 
-The sidebar navigation links themselves remain white. This styling is defined in `assets/css/style.css`.
+This styling is defined in `assets/css/style.css`.
 
 ## Local Development
 
