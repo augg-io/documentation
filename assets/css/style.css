@@ -1,0 +1,25 @@
+/* Custom styles to override Just the Docs theme */
+a {
+  color: #FB039B !important;
+}
+
+a:hover {
+  color: #FB039B !important;
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: #FB039B !important;
+}
+
+.search-result-highlight {
+  color: #FB039B !important;
+}
+
+.search-result-rel-url {
+  color: #FB039B !important;
+}
+
+.site-button:hover {
+  background-color: #FB039B !important;
+}

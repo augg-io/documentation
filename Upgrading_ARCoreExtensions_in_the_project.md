@@ -8,8 +8,6 @@ permalink: /guides/upgrading_arcore_extensions/
 
 # **Upgrading ARCoreExtensions in the project**
 
-## augg.io
-
 1. **First, delete current ARCoreExtensions from the project using the package manager.**  
 2. Install the new version by following [**this**](https://developers.google.com/ar/develop/unity-arf/getting-started-extensions?ar_foundations_version=4#install_arcore) tutorial.  
    1. Choose ARFoundation 5.x even if Google’s docs suggest matching ARFoundation versions  

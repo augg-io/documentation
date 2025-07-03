@@ -1,13 +1,11 @@
 ---
 layout: default
 title: The Scanning App
-nav_order: 4
+nav_order: 3
 permalink: /The_Scanning_Application/
 ---
 
 # **The Scanning App**
-
-## augg.io
 
 # **Introduction**
 

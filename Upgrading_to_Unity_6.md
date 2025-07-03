@@ -8,8 +8,6 @@ permalink: /guides/upgrading_to_unity_6/
 
 # **Upgrading to Unity 6**
 
-## augg.io
-
 ## **Table of Contents**
 
 1. [Introduction](#introduction)  

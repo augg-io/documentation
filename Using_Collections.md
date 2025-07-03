@@ -8,8 +8,6 @@ permalink: /cms/using_collections/
 
 # **Using Collections**
 
-## augg.io
-
 # **Collections in augg.io CMS**
 
 Collections allow you to manage dynamic content within your augg.io applications. This guide will walk you through creating and managing collections, defining schemas, and working with collection items.

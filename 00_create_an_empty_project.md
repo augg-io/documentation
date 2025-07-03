@@ -8,8 +8,6 @@ permalink: /getting_started/create_an_empty_project/
 
 # **Creating an empty project**
 
-## augg.io
-
 **Please use Unity 6 or newer.**
 
 ### Create project

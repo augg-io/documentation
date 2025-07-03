@@ -8,8 +8,6 @@ permalink: /getting_started/using_auggio_unity_editor_plugin/
 
 # **Using augg.io Unity Editor plugin**
 
-## augg.io
-
 # **What is augg.io Unity Editor plugin?**
 
 Our Unity Editor plugin extends Unity Editor with functionality related to augg.io. Its purpose is to fetch data our users capture using the scanning app and import, display and edit them inside Unity Editor. It detects changes users do to their experiences and allows them to upload them to the server. As a result users don't have to rebuild their applications and are able to see their tweaks immediately inside the app. Last but not least our plugin validates the structure of data and its representation in the Unity scene  and ensures that it stays consistent.

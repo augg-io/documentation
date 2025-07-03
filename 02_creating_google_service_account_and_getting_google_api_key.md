@@ -8,8 +8,6 @@ permalink: /getting_started/creating_google_service_account_and_getting_google_a
 
 # **Creating Google Service Account and getting Google API Key**
 
-## augg.io
-
 ### TLDR? 
 [Watch a video!](https://www.youtube.com/watch?v=K4ElIdBGYg8)
 

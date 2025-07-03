@@ -8,8 +8,6 @@ permalink: /getting_started/start_using_auggio/
 
 # **Start using augg.io**
 
-## augg.io
-
 ### Login to Editor Plugin
 
 1. In Unity in the top bar click on **augg.io** \-\> **Editor Plugin**

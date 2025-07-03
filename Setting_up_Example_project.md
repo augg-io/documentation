@@ -8,8 +8,6 @@ permalink: /getting_started/setting_up_example_project/
 
 # **Setting up Example project**
 
-## augg.io
-
 **Please use Unity 2023.1 or newer.**
 
 Follow this tutorial if you are using the example project.
