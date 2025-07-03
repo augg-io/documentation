@@ -51,13 +51,13 @@ a:hover {
 }
 
 /* Additional styles for better contrast on black background */
-.site-header {
-  background-color: #111 !important;
+.site-header, .main-header {
+  background-color: black !important;
   border-bottom: 1px solid #333 !important;
 }
 
 .side-bar {
-  background-color: #111 !important;
+  background-color: black !important;
   border-right: 1px solid #333 !important;
 }
 
