@@ -106,9 +106,23 @@ After the data is imported a few changed can be noticed:
 
 - The Import scene from the server button becomes hidden and there are some additional actions instead.
 
-| ![]({{ site.baseurl }}/images/img_04/image12.png)
-Validate scene \[4.2.A\] This button will validate the integrity of the scene. It shows a special window where the problematic game objects (if any) are displayed. See [Data Validation](#data-validation) chapter for more information. Upload local changes to server \[4.2.B\] This button shows only if there are any local changes present in the [Local Changes \[4.3\]](#local-scene-changes-43) section. It tries to upload local changes done to the experience to the server. It does the validation process before uploading so it won’t accidentally upload invalid data. If validation succeeds the local changes are uploaded to the server. However if the server has changes (e.g. someone else edited the experience after you last updated it) it asks if it should overwrite the server changes. Vice versa, local changes can be discarded (and the server state can be kept) by using Update scene from server button \[4.2.C\].  *Unfortunately there is no merging mechanism of the changes yet. So it is always keep yours or keep theirs. See [Known issues](#known-issues) chapter for more information.* Update scene from server \[4.2.C\] Updates experience data from the server. If there are any local changes, it will ask whether to discard them or not. Server changes status \[4.2.D\] Shows whether there are changes to the experience data on the server against the local state. If there is a green check mark the local state matches the server state. If not, the server state is different and updating the scene from server \[4.2.C\] should be considered. |
-| ----- |
+![]({{ site.baseurl }}/images/img_04/image12.png)
+
+**Validate scene [4.2.A]**
+This button will validate the integrity of the scene. It shows a special window where the problematic game objects (if any) are displayed. See [Data Validation](#data-validation) chapter for more information.
+
+**Upload local changes to server [4.2.B]**
+This button shows only if there are any local changes present in the [Local Changes [4.3]](#local-scene-changes-43) section. It tries to upload local changes done to the experience to the server. It does the validation process before uploading so it won't accidentally upload invalid data. If validation succeeds the local changes are uploaded to the server.
+
+However if the server has changes (e.g. someone else edited the experience after you last updated it) it asks if it should overwrite the server changes. Vice versa, local changes can be discarded (and the server state can be kept) by using Update scene from server button [4.2.C].
+
+*Unfortunately there is no merging mechanism of the changes yet. So it is always keep yours or keep theirs. See [Known issues](#known-issues) chapter for more information.*
+
+**Update scene from server [4.2.C]**
+Updates experience data from the server. If there are any local changes, it will ask whether to discard them or not.
+
+**Server changes status [4.2.D]**
+Shows whether there are changes to the experience data on the server against the local state. If there is a green check mark the local state matches the server state. If not, the server state is different and updating the scene from server [4.2.C] should be considered.
 
 ### Local Scene Changes \[4.3\]
 
@@ -169,8 +183,8 @@ In the Scene view there is a gizmo representation of the anchor which represents
 
 ![]({{ site.baseurl }}/images/img_04/image19.png)
 
-| Please note that any object inside Visualization Hierarchy or Visualization Hierarchy itself must not be moved\! Otherwise strange behavior may occur  where the objects won’t be in their expected positions in AR. If the experience needs to be moved somewhere else in the scene, always move the top level Experience object. Our plugin should automatically disable all moving options of such gameobjects. |
-| :---- |
+{: .warning }
+> **Important:** Please note that any object inside Visualization Hierarchy or Visualization Hierarchy itself must not be moved! Otherwise strange behavior may occur where the objects won't be in their expected positions in AR. If the experience needs to be moved somewhere else in the scene, always move the top level Experience object. Our plugin should automatically disable all moving options of such gameobjects.
 
 ## **Objects**
 
@@ -390,14 +404,14 @@ Supported changes are:
 
 **The changes are displayed in the plugin editor window, where can be discarded or uploaded to the server.**
 
-| Transform changes to augg.io objects or its placeholders can be done by simply moving them in the Scene view or changing their Transform component. |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+{: .note }
+> **Tip:** Transform changes to augg.io objects or its placeholders can be done by simply moving them in the Scene view or changing their Transform component.
 
-| Creating and deleting objects or placeholders can also be done intuitively by deleting or creating them in the Experience hierarchy. |
-|:-------------------------------------------------------------------------------------------------------------------------------------|
+{: .note }
+> **Tip:** Creating and deleting objects or placeholders can also be done intuitively by deleting or creating them in the Experience hierarchy.
 
-| Changing assigned anchors or names of objects have to be done in the Inspector via AuggioObjectTracker or AuggioObjectPlaceholderModel script properties in order to be detected. |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+{: .note }
+> **Important:** Changing assigned anchors or names of objects have to be done in the Inspector via AuggioObjectTracker or AuggioObjectPlaceholderModel script properties in order to be detected.
 
 # **Data validation**
 
@@ -421,8 +435,8 @@ Some of these errors like missing names must be fixed manually but to some of th
 
 *Example \- Object placeholder is not assigned to any augg.io object*
 
-| If errors cannot be fixed automatically via the fix button there are probably some issues in the Experience hierarchy. See [Exploring Experience hierarchy](#exploring-the-experience-hierarchy) chapter to see what may be wrong or delete and re import whole experience (please note that this way local changes may be lost) |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+{: .warning }
+> **Note:** If errors cannot be fixed automatically via the fix button there are probably some issues in the Experience hierarchy. See [Exploring Experience hierarchy](#exploring-the-experience-hierarchy) chapter to see what may be wrong or delete and re-import whole experience (please note that this way local changes may be lost).
 
 # **Best Practices**
 
