@@ -27,7 +27,7 @@ Unity 6 offers performance improvements, updated package versions, and a more st
 
 1. **Open Unity Hub**, select your project and change to Unity 6 version, you can already choose to open the project for iOS or Android builds.
 
-![](/images/img_unity_6/img1.png)
+![]({{ site.baseurl }}/images/img_unity_6/img1.png)
 
 2. When prompted about version changes, **acknowledge any warning pop-up** indicating potential compatibility issues.  
 3. If Unity flags errors on the first project load, do not switch to Safe Mode, just continue while ignoring it. Some errors may appear due to partial project re-compiles. Often, simply **closing and reopening** the project in Unity 6 fixes them.  
@@ -43,18 +43,18 @@ Unity 6 may automatically update certain packages, but you should verify:
 - **Apple ARKit XR Plugin**
 
 Use the Package Manager (Window \> Package Manager) to confirm they are all on version **6.0.5** (or whichever latest version that Unity 6 typically sets). Make sure any other packages that you rely on are also properly updated.  
-![](/images/img_unity_6/img2.png)
-Refer to the [00 - Create an empty project](/00_create_an_empty_projectsetting_up_auggio_in_a_project/) for further installation details if needed.
+![]({{ site.baseurl }}/images/img_unity_6/img2.png)
+Refer to the [00 - Create an empty project]({{ site.baseurl }}/00_create_an_empty_projectsetting_up_auggio_in_a_project/) for further installation details if needed.
 
 ## **Step 3: ARCore Extensions**
 
 If you don't have ARCore Extensions in your project, you can follow [**this Google tutorial**](https://developers.google.com/ar/develop/unity-arf/getting-started-extensions?ar_foundations_version=4#install_arcore)  to install it.
 
-However if your project has older versions of ARCore Extensions (e.g. 1.39) follow the official [Upgrading ARCoreExtensions in the project](/Upgrading_ARCoreExtensions_in_the_project/) manual step by step, **or your build might not work**.
+However if your project has older versions of ARCore Extensions (e.g. 1.39) follow the official [Upgrading ARCoreExtensions in the project]({{ site.baseurl }}/Upgrading_ARCoreExtensions_in_the_project/) manual step by step, **or your build might not work**.
 
 ## **Step 4: Updating Auggio SDK** 
 
-If your project uses the **Auggio SDK**, upgrade it to **version 0.0.3-b1** (or the latest recommended version). Follow the instructions in the [00 - Create an empty project](/00_create_an_empty_projectsetting_up_auggio_in_a_project/), 9\. point, just after the "Install ARCoreExtensions" step to ensure the process completes smoothly.
+If your project uses the **Auggio SDK**, upgrade it to **version 0.0.3-b1** (or the latest recommended version). Follow the instructions in the [00 - Create an empty project]({{ site.baseurl }}/00_create_an_empty_projectsetting_up_auggio_in_a_project/), 9\. point, just after the "Install ARCoreExtensions" step to ensure the process completes smoothly.
 
 ## **Step 5: Confirm Final Build** 
 

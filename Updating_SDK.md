@@ -28,7 +28,7 @@ This guide provides step-by-step instructions for updating the augg.io SDK in yo
 - Click the **Remove** button to uninstall the old package
 - Don't worry if the project now contains errors - the errors will be resolved once we import the new version of the SDK
 
-![Removing augg.io plugin](/images/img_updating_sdk/img1.png)
+![Removing augg.io plugin]({{ site.baseurl }}/images/img_updating_sdk/img1.png)
 
 ### 4. Install the New Package to Package Manager
 
@@ -37,7 +37,7 @@ This guide provides step-by-step instructions for updating the augg.io SDK in yo
 - Navigate to the location of the new SDK package file
 - Select the package file and confirm
 
-![Selecting Install package from tarball](/images/img_updating_sdk/img2.png)
+![Selecting Install package from tarball]({{ site.baseurl }}/images/img_updating_sdk/img2.png)
 
 
 ### 5. Complete the Update

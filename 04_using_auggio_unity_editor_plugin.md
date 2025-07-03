@@ -19,17 +19,17 @@ Our Unity Editor plugin extends Unity Editor with functionality related to augg.
 
 ## **Installation**
 
-If using our example project, there is no need to install anything. Plugin is already part of this project and all that is needed is to follow the steps in [Setting up augg.io](01_setting_up_auggio_in_a_project) guide.
+If using our example project, there is no need to install anything. Plugin is already part of this project and all that is needed is to follow the steps in [Setting up augg.io]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) guide.
 
-If installing augg.io to an existing project please follow the steps described [here](00_create_an_empty_projectsetting_up_auggio_in_a_project) and then  [Setting up augg.io](01_setting_up_auggio_in_a_project) guide.
+If installing augg.io to an existing project please follow the steps described [here]({{ site.baseurl }}/00_create_an_empty_projectsetting_up_auggio_in_a_project/) and then  [Setting up augg.io]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) guide.
 
 ## **Signing in**
 
 Once augg.io is installed inside the Unity project, start using the plugin by clicking on **augg.io \-\> Editor Plugin** in Unity top menu bar. If there is no augg.io menu item, please make sure augg.io is installed properly and there are no compilation errors inside the Unity console.
 
-![](images/img_04/image7.png)
+![]({{ site.baseurl }}/images/img_04/image7.png)
 
-After opening the Editor Plugin, the first thing that will appear  is a login screen. It prompts to enter augg.io API key, which can be found in our CMS ([https://cms.augg.io](https://cms.augg.io)). If [Setting up augg.io guide](01_setting_up_auggio_in_a_project) was properly followed, you should have an account created. To get augg.io api key please follow these steps:
+After opening the Editor Plugin, the first thing that will appear  is a login screen. It prompts to enter augg.io API key, which can be found in our CMS ([https://cms.augg.io](https://cms.augg.io)). If [Setting up augg.io guide]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) was properly followed, you should have an account created. To get augg.io api key please follow these steps:
 
 1. Login to CMS   
 2. Select arbitrary organization (augg.io API is tied to account not organization)  
@@ -37,14 +37,14 @@ After opening the Editor Plugin, the first thing that will appear  is a login sc
 4. Select Settings  
 5. Copy Unity API key 
 
-![](images/img_04/image10.png)
+![]({{ site.baseurl }}/images/img_04/image10.png)
 
-![](images/img_04/image15.png)
+![]({{ site.baseurl }}/images/img_04/image15.png)
 
 # **Basic Usage**
 
 After successfull login, the plugin home screen will appear. The organization can be selected via Select organization dropdown menu **\[1\]**, adjust plugin Settings by clicking on Settings button **\[2\]** or log out from the plugin **\[3\]**. The rest of the screen shows experiences list **\[4\]** created within the selected organization.
-![](images/img_04/image37.png)
+![]({{ site.baseurl }}/images/img_04/image37.png)
 
 ## **Selected Organization \[1\]**
 
@@ -54,7 +54,7 @@ Displays current selected organization. To switch organization simply select dif
 
 Settings screen contains basic plugin properties that can be  changed to tweak behavior of the plugin. 
 
-![](images/img_04/image27.png)
+![]({{ site.baseurl }}/images/img_04/image27.png)
 
 ### Default Mesh Material on Import
 
@@ -76,13 +76,13 @@ Each item in the experience list works as a button. Click to display experience 
 
 If there is already one or more experiences imported in the current opened scene, there will be a small Unity logo in the right part of the experience button and text *(in scene).*
 
-![](images/img_04/image2.png)
+![]({{ site.baseurl }}/images/img_04/image2.png)
 
 ## **Experience detail**
 
 After clicking on any experience button in the experiences list, the experience detail screen will display. Here are a couple of things \- Experience name **\[4.1\]**, Import scene from server button **\[4.2\]**, Local scene changes section **\[4.3\]** with a force refresh button **\[4.4\]** and Anchors section  **\[4.5\]** with a Download meshes button **\[4.6\]**. Let’s explain them in more detail.
 
-![](images/img_04/image23.png)
+![]({{ site.baseurl }}/images/img_04/image23.png)
 
 ### Experience name \[4.1\]
 
@@ -107,7 +107,7 @@ After the data is imported a few changed can be noticed:
 
 - The Import scene from the server button becomes hidden and there are some additional actions instead.
 
-| ![](images/img_04/image12.png)
+| ![]({{ site.baseurl }}/images/img_04/image12.png)
 Validate scene \[4.2.A\] This button will validate the integrity of the scene. It shows a special window where the problematic game objects (if any) are displayed. See [Data Validation](#data-validation) chapter for more information. Upload local changes to server \[4.2.B\] This button shows only if there are any local changes present in the [Local Changes \[4.3\]](#local-scene-changes-43) section. It tries to upload local changes done to the experience to the server. It does the validation process before uploading so it won’t accidentally upload invalid data. If validation succeeds the local changes are uploaded to the server. However if the server has changes (e.g. someone else edited the experience after you last updated it) it asks if it should overwrite the server changes. Vice versa, local changes can be discarded (and the server state can be kept) by using Update scene from server button \[4.2.C\].  *Unfortunately there is no merging mechanism of the changes yet. So it is always keep yours or keep theirs. See [Known issues](#known-issues) chapter for more information.* Update scene from server \[4.2.C\] Updates experience data from the server. If there are any local changes, it will ask whether to discard them or not. Server changes status \[4.2.D\] Shows whether there are changes to the experience data on the server against the local state. If there is a green check mark the local state matches the server state. If not, the server state is different and updating the scene from server \[4.2.C\] should be considered. |
 | ----- |
 
@@ -117,7 +117,7 @@ This section tracks whether there are any supported local changes to the experie
 
 For each change there is an object identifier to which object the change belongs to, what type of change has been done, old value, new value and supported actions for the specific change.
 
-![](images/img_04/image31.png)
+![]({{ site.baseurl }}/images/img_04/image31.png)
 
 ***Example:** We moved **\[Object\] PortalPrachovky** gameobject 1.82 meters up. In the image there is exactly this change with the ability to select the game object in Hierarchy by clicking Select in Scene button or discarding the change by using Discard button.*
 
@@ -129,7 +129,7 @@ Plugin window and therefore the local changes should refresh every time the wind
 
 This section displays the anchors that are assigned to the experience. For each anchor it shows its name, a location to which it belongs and whether the scanned mesh is downloaded in the file system or not (red X if not, green checkmark if yes).
 
-![](images/img_04/image8.png)
+![]({{ site.baseurl }}/images/img_04/image8.png)
 
 *Example: All meshes for all anchors are downloaded*
 
@@ -141,7 +141,7 @@ If there are any meshes that are not present in the file system, this button wil
 
 After importing experience into the current scene, augg.io plugin generates specific game object hierarchy inside the Hierarchy tab. The top level object should have name **\[Experience\] Experience name** and should have **AuggioExperience** script attached to it. Let’s explain what the children of that game object represent and how they work.
 
-![](images/img_04/image26.png)
+![]({{ site.baseurl }}/images/img_04/image26.png)
 
 *Example \- Valid experience hierarchy*
 
@@ -152,23 +152,23 @@ VisualizationHierarchy game object contains data game objects which are responsi
 - **Material** \- sets defined material to all renderers under Visualization Hierarchy game object  
 - **Visualize Mesh** \- if checked all the meshes for whole experience will be displayed in the scene view
 
-![](images/img_04/image24.png)
+![]({{ site.baseurl }}/images/img_04/image24.png)
 
 ### Locations
 
 Under **VisualizationHierarchy** there is a game object for each location assigned to the experience. Each location has **AuggioLocation** script attached to it where the visualization of the location meshes can be selectively turned on/off .
 
-![](images/img_04/image6.png)
+![]({{ site.baseurl }}/images/img_04/image6.png)
 
 ### Anchors
 
 Each location has a game object for each of its anchors. Each anchor has **AuggioAnchor** script attached to it, where settings like material or mesh visualization can be overridden for each anchor selectively.
 
-![](images/img_04/image25.png)
+![]({{ site.baseurl }}/images/img_04/image25.png)
 
 In the Scene view there is a gizmo representation of the anchor which represents anchor position and rotation.
 
-![](images/img_04/image19.png)
+![]({{ site.baseurl }}/images/img_04/image19.png)
 
 | Please note that any object inside Visualization Hierarchy or Visualization Hierarchy itself must not be moved\! Otherwise strange behavior may occur  where the objects won’t be in their expected positions in AR. If the experience needs to be moved somewhere else in the scene, always move the top level Experience object. Our plugin should automatically disable all moving options of such gameobjects. |
 | :---- |
@@ -179,11 +179,11 @@ Objects are the most interesting game objects in this hierarchy. It is the place
 
 Each object has an **AuggioObjectTracker** script attached which is responsible for tracking the object. Following properties can be changed: object’s parent anchor, name of the object or whether object’s simple model representation should be shown in scene view (Visualize Mesh).
 
-.![](images/img_04/image1.png)
+.![]({{ site.baseurl }}/images/img_04/image1.png)
 
 If an object is selected in the scene view or the hierarchy, the simple model representation will be **highlighted and a dotted line** will appear representing which anchor is the object tied to.
 
-![](images/img_04/image34.png)
+![]({{ site.baseurl }}/images/img_04/image34.png)
 
 ### Object Placeholders (optional)
 
@@ -196,7 +196,7 @@ Each object can have 0 to N simple model representations which we call object pl
 
 Each placeholder object has an **AuggioObjectPlaceholderModel** script attached to it where the name of the placeholder object and its  simple model representation can be set.
 
-![](images/img_04/image33.png)
+![]({{ site.baseurl }}/images/img_04/image33.png)
 
 ### Detach Strategy (optional)
 
@@ -234,11 +234,11 @@ Other ways to create new object:
 
  After setting all values click on the **Create button**.
 
-![](images/img_04/image14.png)
+![]({{ site.baseurl }}/images/img_04/image14.png)
 
 *Create new augg.io object window*
 
-![](images/img_04/image9.png)
+![]({{ site.baseurl }}/images/img_04/image9.png)
 
 *Create new augg.io object window \- filled in*
 
@@ -246,27 +246,27 @@ Other ways to create new object:
 
 Select \[Experience\] game object in scene or in Hierarchy tab under which you want to add new augg.io object. In Inspector tab you should see AuggioExperience script attached to this game object. This script has the “**Add new augg.io object”** button under the Actions section. 
 
-![](images/img_04/image21.png)
+![]({{ site.baseurl }}/images/img_04/image21.png)
 
 After clicking on this button, a wizard will appear. The wizard is the same one described in the previous section, but the Experience dropdown value is pre filled and cannot be changed.
 
-![](images/img_04/image35.png)
+![]({{ site.baseurl }}/images/img_04/image35.png)
 
 #### Using AuggioAnchor inspector button
 
 Select desired \[Anchor\] game object in scene or in Hierarchy tab which you would like to tie the new object to. \[Anchor\] game objects are under \[Experience\] \-\> Visualization Hierarchy \-\> \[Location\]. In Inspector tab you should see AuggioAnchor script attached to this game object. This script has the “Add new augg.io object tied to this anchor” button under the Actions section.
 
-![](images/img_04/image22.png)
+![]({{ site.baseurl }}/images/img_04/image22.png)
 
 After clicking on this button, once again a same wizard as in previous sections will appear and will have experience and anchor dropdown values predefined and not changeable.
 
-![](images/img_04/image28.png)
+![]({{ site.baseurl }}/images/img_04/image28.png)
 
 #### Creating object by duplicating existing object
 
 The second way will result in an error  displayed in the Inspector tab. By clicking on **Create new from this object** the error should be resolved.
 
-![](images/img_04/image3.png)
+![]({{ site.baseurl }}/images/img_04/image3.png)
 
 *Duplicate augg.io object error after duplicating existing object*
 
@@ -274,7 +274,7 @@ The second way will result in an error  displayed in the Inspector tab. By click
 
 The third way will result in multiple consequent errors in the Inspector tab. By clicking on **Try to fix** the information should be filled.
 
-![](images/img_04/image16.png)
+![]({{ site.baseurl }}/images/img_04/image16.png)
 
 1. *Missing information error after creating empty gameobject with **AuggioObjectTracker***
 
@@ -282,7 +282,7 @@ The third way will result in multiple consequent errors in the Inspector tab. By
 
 After that, fill in the name of the newly created placeholder object and there will be one last error, that placeholder object is not correctly assigned to the object. By clicking **Try to fix**, all errors should be resolved.
 
-![](images/img_04/image13.png)
+![]({{ site.baseurl }}/images/img_04/image13.png)
 
 2. *Not assigned error after creating a child gameobject under **AuggioObjectTracker** with **AuggioObjectPlaceholderModel** script.*
 
@@ -309,7 +309,7 @@ Similarly to creating new augg.io object you can create new object placeholder i
 - Experience (under which experience you would like to create the placeholder)  
 - Auggio object (under which object you would like to create the placeholder)
 
-![](images/img_04/image18.png)
+![]({{ site.baseurl }}/images/img_04/image18.png)
 
 After setting the values, the Create button should become active. By clicking on it a new game object should be created under defined \[Object\].
 
@@ -317,23 +317,23 @@ After setting the values, the Create button should become active. By clicking on
 
 Select \[Object\] game object in Hierarchy tab or in scene view under which you would like to add the new placeholder object. Once selected you should see AuggioObjectTracker script attached to this game object in the Inspector tab. This script has a “Add Placeholder” button in the Actions section.
 
-![](images/img_04/image17.png)
+![]({{ site.baseurl }}/images/img_04/image17.png)
 
 After clicking on this button the same wizard as described in the previous section will appear. However it will have the Experience and Auggio object values pre filled and not changeable.
 
-![](images/img_04/image32.png)
+![]({{ site.baseurl }}/images/img_04/image32.png)
 
 #### Creating placeholder object by duplicating existing one
 
 If you duplicate an existing placeholder object you will see an error on both duplicate and original placeholder objects in the Inspector tab saying that a **Duplicate placeholder ID was found**. You can create a new ID for duplicate or original and therefore resolve this error by clicking on the **Try to fix** button. Please note that this will also change the placeholder name to **New placeholder model**, so don’t forget to rename it properly.
 
-![](images/img_04/image30.png)
+![]({{ site.baseurl }}/images/img_04/image30.png)
 
 #### Creating placeholder object from scratch
 
 You can also just create a new game object as a child of any \[Object\] game objects and attach AuggioObjectPlaceholderModel script to it. You will see two errors in the Inspector tab.
 
-![](images/img_04/image20.png)
+![]({{ site.baseurl }}/images/img_04/image20.png)
 
 First one can be resolved by specifying the name inside the Placeholder Name text field.   
 The second error can be resolved by clicking on the **Try to fix** button. Please note that if the object is not a child of \[Object\] game object, the fixing process will not be successful.
@@ -412,13 +412,13 @@ When trying to upload local changes to the server or click on Validate scene in 
 
 The validation window provides a Select in scene button which selects the problematic game object and the issues are displayed in the Inspector tab e.g
 
-![](images/img_04/image29.png)
+![]({{ site.baseurl }}/images/img_04/image29.png)
 
 *Example \-  Auggio Object Placeholder is missing name*
 
 Some of these errors like missing names must be fixed manually but to some of them augg.io provides automatic solution via button under the error e.g
 
-![](images/img_04/image4.png)
+![]({{ site.baseurl }}/images/img_04/image4.png)
 
 *Example \- Object placeholder is not assigned to any augg.io object*
 
@@ -473,14 +473,14 @@ Since the editor plugin has access only to the current opened scene, it can’t 
 
 If you successfully downloaded meshes and they are not visible in your scene view simply select Visualization Hierarchy object under your \[Experience\] game object and turn off and on Visualize mesh property in the Inspector tab. Or you can do it selectively for each \[Location\] or \[Anchor\].
 
-![](images/img_04/image11.png)
+![]({{ site.baseurl }}/images/img_04/image11.png)
 
 ## **I deleted meshes and they are still visible in my scene view**
 
 If you deleted meshes and they are still visible in your scene view they are cached within the Scene. Simply select Visualization Hierarchy under your \[Experience\] game object and turn off Visualize Mesh Property in the Inspector tab. This will destroy cached mesh game objects in Scene view. 
 
-![](images/img_04/image11.png)
+![]({{ site.baseurl }}/images/img_04/image11.png)
 
 You can check that the mesh files are indeed deleted by turning the Visualize Mesh property back on. You should see the following error in the Console.
 
-![](images/img_04/image36.png)
+![]({{ site.baseurl }}/images/img_04/image36.png)

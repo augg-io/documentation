@@ -52,15 +52,15 @@ permalink: /00_create_an_empty_projectsetting_up_auggio_in_a_project/
 6. Set Requires **ARKit Support** to 'true'
 
 7. Fill in **Camera Usage Description** if not already filled in
-   ![](/images/img_00/image1.png)
-   ![](/images/img_00/image14.png)
+   ![]({{ site.baseurl }}/images/img_00/image1.png)
+   ![]({{ site.baseurl }}/images/img_00/image14.png)
 
 ### Installing packages
 
 1. In the top menu click on **Windows** \-\> **Package Manager**
 
 2. Change packages shown to **Unity Registry**.
-   ![image4.png](/images/img_00/image11.png)
+   ![image4.png]({{ site.baseurl }}/images/img_00/image11.png)
 
 3. Install **Universal RP**
 
@@ -70,13 +70,13 @@ permalink: /00_create_an_empty_projectsetting_up_auggio_in_a_project/
 
 6. Install **Apple ARKit XR Plugin**
 
-7. Click the **\+** button in the top right corner and select **install package from tarball**.![](/images/img_00/image8.png)
+7. Click the **\+** button in the top right corner and select **install package from tarball**.![]({{ site.baseurl }}/images/img_00/image8.png)
 
 8. Install [**ARCoreExtensions**](https://developers.google.com/ar/develop/unity-arf/getting-started-extensions?ar_foundations_version=4#install_arcore) by following the tutorial by Google.
 
 9. Click the **\+** button again and find the path to [**augg.io SDK** tarball](https://drive.google.com/drive/folders/1G6YQdCL6hBLntgNW85MH4Kbq-uW5eKXu) (tar.gz file extensions) and install into the project.
 
-| Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project](/Upgrading_ARCoreExtensions_in_the_project/). |
+| Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project]({{ site.baseurl }}/Upgrading_ARCoreExtensions_in_the_project/). |
 | :---- |
 
 ### Setting up URP
@@ -84,7 +84,7 @@ permalink: /00_create_an_empty_projectsetting_up_auggio_in_a_project/
 1. Open **Settings** folder
 
 2. Select **URP-HighFidelity-Renderer** and add **ARBackgroundRendererFeature**.
-   ![](/images/img_00/image15.png)
+   ![]({{ site.baseurl }}/images/img_00/image15.png)
 
 ### Setting up XR
 
@@ -97,7 +97,7 @@ permalink: /00_create_an_empty_projectsetting_up_auggio_in_a_project/
 4. Select Project Validation
 
 5. If there are any issue click on Fix
-   ![](/images/img_00/image4.png)
+   ![]({{ site.baseurl }}/images/img_00/image4.png)
 
 ### Prepare scene
 
@@ -108,25 +108,25 @@ permalink: /00_create_an_empty_projectsetting_up_auggio_in_a_project/
 3. Right click in the Hierarchy window. XR \-\> XR Origin (Mobile AR)
 
 4. Select XR Origin. Click add component and add ARAnchorManager (the field can be empty).
-   ![](/images/img_00/image6.png)
+   ![]({{ site.baseurl }}/images/img_00/image6.png)
 
 ### Setup ARCoreExtension
 
 1. Right click in the hierarchy window. Select XR \-\> ARCore Extensions
 
 2. Fill in the first three fields. Just click and select the only option available
-   ![](/images/img_00/image13.png)
+   ![]({{ site.baseurl }}/images/img_00/image13.png)
 
 3. Go to the Settings folder.
 
 4. Create ARCoreExtensionsConfig and CameraConfigFilter
-	![](/images/img_00/image10.png)
+	![]({{ site.baseurl }}/images/img_00/image10.png)
 
 5. Select the ARCoreExtensionConfig you just created. And set Cloud Anchors Mode to enabled.
-   ![](/images/img_00/image9.png)
+   ![]({{ site.baseurl }}/images/img_00/image9.png)
 
 6. Select ARCoreExtension in the scene and set the two remaining fields.
-   ![](/images/img_00/image17.png)
+   ![]({{ site.baseurl }}/images/img_00/image17.png)
 
 ### Setting up scene
 
@@ -137,15 +137,15 @@ permalink: /00_create_an_empty_projectsetting_up_auggio_in_a_project/
 3. Add **AuggioTrackingManager** script to the game object.
 
 4. Add **InitializeOnSessionTracking** and set the reference to **AuggioTrackingManager**. Do this if you are not using custom initializing logic.
-   ![](/images/img_00/image12.png)
+   ![]({{ site.baseurl }}/images/img_00/image12.png)
 
-| Congratulations, you've made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project](/01_setting_up_auggio_in_a_project/) |
+| Congratulations, you've made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) |
 | :---- |
 
-[image1]: /images/img_00/image16.png
+[image1]: {{ site.baseurl }}/images/img_00/image16.png
 
-[image2]: /images/img_00/image2.png
+[image2]: {{ site.baseurl }}/images/img_00/image2.png
 
-[image3]: /images/img_00/image5.png
+[image3]: {{ site.baseurl }}/images/img_00/image5.png
 
-[image4]: /images/img_00/image3.png
+[image4]: {{ site.baseurl }}/images/img_00/image3.png
