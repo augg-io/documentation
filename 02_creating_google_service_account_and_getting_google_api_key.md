@@ -65,8 +65,6 @@ In order to manage your Google Cloud anchors (create, delete, set time to live),
 
 13. You will have to confirm to delete all data. **You will lose all data created on the Trial tier.**
 
-### 
-
 ### Get Google API Key
 
 Google API Key is needed in your Unity application, so it can resolve previously created anchors and display your prepared content. To create this API key, please follow these steps:

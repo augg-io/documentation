@@ -37,8 +37,6 @@ Table of Contents
 1. Download the latest `.unitypackage`  
 2. Double-click the downloaded file or import it via Assets \> Import Package \> Custom Package
 
-## 
-
 ## **Quick Start**
 
 Initialize the client in your application startup code:
@@ -89,8 +87,6 @@ Pigeon.Post("/users")
 
 The `bool` parameter controls whether to use default configuration (true by default).
 
-## 
-
 ## **Usage Examples**
 
 ### **POST Request with JSON**
@@ -121,13 +117,9 @@ Pigeon.Get("/files/document.pdf")
   .Send();
 ```
 
-## 
-
 ## **Authentication**
 
 Implement `AbstractAuthLayer` to handle authentication:
-
-### 
 
 ```csharp
 public class MyAuthLayer : AbstractAuthLayer {

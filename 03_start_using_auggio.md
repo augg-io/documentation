@@ -20,8 +20,6 @@ permalink: /getting_started/start_using_auggio/
 
 5. Enter the API key into the plugin.
 
-### 
-
 ### Plugin basics
 
 1. Select the experience you want to import into unity.
@@ -38,10 +36,6 @@ permalink: /getting_started/start_using_auggio/
 
 6. If you move the object make sure to push the changes to the server otherwise the new position won't be seen in the build.  
    ![]({{ site.baseurl }}/images/img_03/image1.png)
-
-### 
-
-### 
 
 ### Common Issues
 
