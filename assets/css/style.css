@@ -46,6 +46,10 @@ a:hover {
   color: white !important;
 }
 
+.site-logo {
+  width: 75% !important;
+}
+
 .search-result-rel-url {
   color: #FF29C3 !important;
 }
