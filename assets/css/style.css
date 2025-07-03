@@ -50,6 +50,10 @@ a:hover {
   width: 75% !important;
 }
 
+#menu-button .icon {
+  color: #FF29C3 !important;
+}
+
 .search-result-rel-url {
   color: #FF29C3 !important;
 }
