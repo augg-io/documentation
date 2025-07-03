@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Using augg.io Unity Editor plugin
-nav_order: 6
-permalink: /04_using_auggio_unity_editor_plugin/
+nav_order: 5
+parent: Getting Started
+permalink: /getting_started/using_auggio_unity_editor_plugin/
 ---
 
 # **Using augg.io Unity Editor plugin**
@@ -19,9 +20,9 @@ Our Unity Editor plugin extends Unity Editor with functionality related to augg.
 
 ## **Installation**
 
-If using our example project, there is no need to install anything. Plugin is already part of this project and all that is needed is to follow the steps in [Setting up augg.io]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) guide.
+If using our example project, there is no need to install anything. Plugin is already part of this project and all that is needed is to follow the steps in [Setting up augg.io]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/) guide.
 
-If installing augg.io to an existing project please follow the steps described [here]({{ site.baseurl }}/00_create_an_empty_projectsetting_up_auggio_in_a_project/) and then  [Setting up augg.io]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) guide.
+If installing augg.io to an existing project please follow the steps described [here]({{ site.baseurl }}/getting_started/create_an_empty_project/) and then  [Setting up augg.io]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/) guide.
 
 ## **Signing in**
 
@@ -29,7 +30,7 @@ Once augg.io is installed inside the Unity project, start using the plugin by cl
 
 ![]({{ site.baseurl }}/images/img_04/image7.png)
 
-After opening the Editor Plugin, the first thing that will appear  is a login screen. It prompts to enter augg.io API key, which can be found in our CMS ([https://cms.augg.io](https://cms.augg.io)). If [Setting up augg.io guide]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) was properly followed, you should have an account created. To get augg.io api key please follow these steps:
+After opening the Editor Plugin, the first thing that will appear  is a login screen. It prompts to enter augg.io API key, which can be found in our CMS ([https://cms.augg.io](https://cms.augg.io)). If [Setting up augg.io guide]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/) was properly followed, you should have an account created. To get augg.io api key please follow these steps:
 
 1. Login to CMS   
 2. Select arbitrary organization (augg.io API is tied to account not organization)  

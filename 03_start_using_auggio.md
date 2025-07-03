@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Start using augg.io
-nav_order: 5
-permalink: /03_start_using_auggio/
+nav_order: 4
+parent: Getting Started
+permalink: /getting_started/start_using_auggio/
 ---
 
 # **Start using augg.io**
@@ -51,5 +52,5 @@ permalink: /03_start_using_auggio/
 * Sometimes mesh scans can be pink. If this happens make sure the material is set in **VisualizationHierarchy**  
   ![]({{ site.baseurl }}/images/img_03/image2.png)
 
-| Congratulations, you've made it to the end! Need a reminder of what you've done earlier in the guide? The previous part is right here: [02 - Creating Google Service Account and getting Google API Key]({{ site.baseurl }}/02_creating_google_service_account_and_getting_google_api_key/) The next part of the guide awaits you here:   [04 - Using augg.io Unity Editor Plugin]({{ site.baseurl }}/04_using_auggio_unity_editor_plugin/) |
+| Congratulations, you've made it to the end! Need a reminder of what you've done earlier in the guide? The previous part is right here: [02 - Creating Google Service Account and getting Google API Key]({{ site.baseurl }}/getting_started/creating_google_service_account_and_getting_google_api_key/) The next part of the guide awaits you here:   [04 - Using augg.io Unity Editor Plugin]({{ site.baseurl }}/getting_started/using_auggio_unity_editor_plugin/) |
 | :---- |

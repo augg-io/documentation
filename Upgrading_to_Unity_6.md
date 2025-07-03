@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Upgrading to Unity 6
-nav_order: 10
+nav_order: 6
 permalink: /Upgrading_to_Unity_6/
 ---
 
@@ -44,7 +44,7 @@ Unity 6 may automatically update certain packages, but you should verify:
 
 Use the Package Manager (Window \> Package Manager) to confirm they are all on version **6.0.5** (or whichever latest version that Unity 6 typically sets). Make sure any other packages that you rely on are also properly updated.  
 ![]({{ site.baseurl }}/images/img_unity_6/img2.png)
-Refer to the [00 - Create an empty project]({{ site.baseurl }}/00_create_an_empty_projectsetting_up_auggio_in_a_project/) for further installation details if needed.
+Refer to the [00 - Create an empty project]({{ site.baseurl }}/getting_started/create_an_empty_project/) for further installation details if needed.
 
 ## **Step 3: ARCore Extensions**
 
@@ -54,7 +54,7 @@ However if your project has older versions of ARCore Extensions (e.g. 1.39) foll
 
 ## **Step 4: Updating Auggio SDK** 
 
-If your project uses the **Auggio SDK**, upgrade it to **version 0.0.3-b1** (or the latest recommended version). Follow the instructions in the [00 - Create an empty project]({{ site.baseurl }}/00_create_an_empty_projectsetting_up_auggio_in_a_project/), 9\. point, just after the "Install ARCoreExtensions" step to ensure the process completes smoothly.
+If your project uses the **Auggio SDK**, upgrade it to **version 0.0.3-b1** (or the latest recommended version). Follow the instructions in the [00 - Create an empty project]({{ site.baseurl }}/getting_started/create_an_empty_project/), 9\. point, just after the "Install ARCoreExtensions" step to ensure the process completes smoothly.
 
 ## **Step 5: Confirm Final Build** 
 

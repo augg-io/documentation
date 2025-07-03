@@ -1,7 +1,7 @@
 ---
 layout: default
 title: augg.io Tools
-nav_order: 13
+nav_order: 9
 has_children: true
 permalink: /auggio_Tools/
 ---
@@ -12,5 +12,5 @@ This section contains documentation for various tools provided by augg.io to enh
 
 ## Available Tools
 
-- [Dependency Injector](Dependency_Injector_Manual) - Professional dependency injection framework for Unity
-- [Pigeon HTTP Client](Pigeon_HTTP_Client_Manual) - Powerful, asynchronous HTTP client implementation for Unity
+- [Dependency Injector]({{ site.baseurl }}/auggio_Tools/Dependency_Injector_Manual/) - Professional dependency injection framework for Unity
+- [Pigeon HTTP Client]({{ site.baseurl }}/auggio_Tools/Pigeon_HTTP_Client_Manual/) - Powerful, asynchronous HTTP client implementation for Unity

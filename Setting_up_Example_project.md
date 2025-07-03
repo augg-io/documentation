@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Setting up Example project
-nav_order: 12
+nav_order: 8
 permalink: /Setting_up_Example_project/
 ---
 
@@ -32,5 +32,5 @@ Example project should come with pre-installed augg.io packages. Please check **
 | Important: If you installed an older version of ARCoreExtensions (e.g. 1.39 which is shipped with some earlier versions of augg.io) you may have a problem with building the application to iOS 18\. To resolve this issue, upgrade to a newer version of ARCoreExtensions by following this tutorial [Upgrading ARCoreExtensions in the project]({{ site.baseurl }}/Upgrading_ARCoreExtensions_in_the_project/). |
 | :---- |
 
-| Congratulations, you've made it to the end\! Please, continue with [01 - Setting up augg.io in a project]({{ site.baseurl }}/01_setting_up_auggio_in_a_project/) |
+| Congratulations, you've made it to the end\! Please, continue with [01 - Setting up augg.io in a project]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/) |
 | :---- |

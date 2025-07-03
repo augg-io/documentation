@@ -1,7 +1,7 @@
 ---
 layout: default
 title: How to Update augg.io SDK
-nav_order: 9
+nav_order: 5
 permalink: /Updating_SDK/
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Upgrading ARCoreExtensions in the project
-nav_order: 11
+nav_order: 7
 permalink: /Upgrading_ARCoreExtensions_in_the_project/
 ---
 

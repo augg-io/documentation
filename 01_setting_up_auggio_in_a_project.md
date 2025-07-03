@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Setting up augg.io in a project
-nav_order: 3
-permalink: /01_setting_up_auggio_in_a_project/
+nav_order: 2
+parent: Getting Started
+permalink: /getting_started/setting_up_auggio_in_a_project/
 ---
 
 # **Setting up augg.io in a project**
@@ -22,7 +23,7 @@ If you are using example project start with [Setting up Example project]({{ site
 4. Set **Authentication Strategy** to **API key**
    ![]({{ site.baseurl }}/images/img_01/image5.png)
 
-5. Fill in your [**Google Cloud Anchors API key**]({{ site.baseurl }}/02_creating_google_service_account_and_getting_google_api_key/)**.**
+5. Fill in your [**Google Cloud Anchors API key**]({{ site.baseurl }}/getting_started/creating_google_service_account_and_getting_google_api_key/)**.**
 
 6. Go to **Assets \- External Dependency Manager \- Android** and click **Force Resolve**
 
@@ -41,5 +42,5 @@ If you are using example project start with [Setting up Example project]({{ site
 5. Put your Application file token inside the **Assets/Resources** folder. It has to be named **auggioFileToken.json**.
    ![]({{ site.baseurl }}/images/img_01/image1.png)
 
-| Congratulations, you've made it to the end\! Need a reminder of what you've done earlier in the guide? The previous part is right here: [00 - Create an empty project]({{ site.baseurl }}/00_create_an_empty_projectsetting_up_auggio_in_a_project/) The next part of the guide awaits you here:  [02 - Creating Google Service Account and getting Google API Key]({{ site.baseurl }}/02_creating_google_service_account_and_getting_google_api_key/)  |
+| Congratulations, you've made it to the end\! Need a reminder of what you've done earlier in the guide? The previous part is right here: [00 - Create an empty project]({{ site.baseurl }}/getting_started/create_an_empty_project/) The next part of the guide awaits you here:  [02 - Creating Google Service Account and getting Google API Key]({{ site.baseurl }}/getting_started/creating_google_service_account_and_getting_google_api_key/)  |
 | :---- |
