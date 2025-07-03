@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Setting up Example project
-nav_order: 8
-permalink: /Setting_up_Example_project/
+nav_order: 2
+parent: Getting Started
+permalink: /getting_started/setting_up_example_project/
 ---
 
 # **Setting up Example project**

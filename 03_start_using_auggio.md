@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Start using augg.io
-nav_order: 4
+nav_order: 5
 parent: Getting Started
 permalink: /getting_started/start_using_auggio/
 ---

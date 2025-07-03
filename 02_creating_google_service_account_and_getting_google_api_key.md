@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Creating Google Service Account and getting Google API Key
-nav_order: 3
+nav_order: 4
 parent: Getting Started
 permalink: /getting_started/creating_google_service_account_and_getting_google_api_key/
 ---

@@ -9,7 +9,7 @@ permalink: /
 
 Welcome to the official augg.io documentation. Follow these steps to get started:
 
-1. First create an empty project using [00 - Create an empty project]({{ site.baseurl }}/getting_started/create_an_empty_project/) or download our example project and follow [Setting up Example project]({{ site.baseurl }}/Setting_up_Example_project/)
+1. First create an empty project using [00 - Create an empty project]({{ site.baseurl }}/getting_started/create_an_empty_project/) or download our example project and follow [Setting up Example project]({{ site.baseurl }}/getting_started/setting_up_example_project/)
 2. After having a ready to go project we need to setup augg.io plugin in the project. Follow [01 - Setting up augg.io in a project]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/)
 3. During the process of setting up augg.io you will need to create a Google Service Account and ARCore API Key. When needed follow [02 - Creating Google Service Account and getting Google API Key]({{ site.baseurl }}/getting_started/creating_google_service_account_and_getting_google_api_key/)
 4. Now is a great time to start using our scanning app [The Scanning Application]({{ site.baseurl }}/The_Scanning_Application/) and create your experiences.

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Using augg.io Unity Editor plugin
-nav_order: 5
+nav_order: 6
 parent: Getting Started
 permalink: /getting_started/using_auggio_unity_editor_plugin/
 ---

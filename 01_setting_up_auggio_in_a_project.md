@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Setting up augg.io in a project
-nav_order: 2
+nav_order: 3
 parent: Getting Started
 permalink: /getting_started/setting_up_auggio_in_a_project/
 ---
