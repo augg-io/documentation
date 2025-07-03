@@ -138,8 +138,7 @@ permalink: /getting_started/create_an_empty_project/
 4. Add **InitializeOnSessionTracking** and set the reference to **AuggioTrackingManager**. Do this if you are not using custom initializing logic.
    ![]({{ site.baseurl }}/images/img_00/image12.png)
 
-| Congratulations, you've made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/) |
-| :---- |
+Congratulations, you've made it to the end! The next part of the guide awaits you here:  [01 - Setting up augg.io in a project]({{ site.baseurl }}/getting_started/setting_up_auggio_in_a_project/)
 
 [image1]: {{ site.baseurl }}/images/img_00/image16.png
 
