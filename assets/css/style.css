@@ -1,41 +1,98 @@
 /* Custom styles to override Just the Docs theme */
 
+/* Import Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Set background color to black and font family to Poppins for the entire site */
+body {
+  background-color: black !important;
+  font-family: 'Poppins', sans-serif !important;
+  color: white !important;
+}
+
 /* Make all links pink by default */
 a {
-  color: #FB039B !important;
+  color: #FF29C3 !important;
 }
 
 a:hover {
-  color: #FB039B !important;
+  color: #FF29C3 !important;
 }
 
 /* Override to keep sidebar navigation links white */
 .nav-list a {
-  color: inherit !important;
+  color: white !important;
 }
 
 .nav-list a:hover {
-  color: inherit !important;
+  color: #FF29C3 !important;
 }
 
 /* Make arrows in side navigation pink */
 .nav-list .nav-list-item .nav-list-expander svg {
-  color: #FB039B !important;
+  color: #FF29C3 !important;
 }
 
 /* Other UI elements with the brand color */
 .btn-primary {
-  background-color: #FB039B !important;
+  background-color: #FF29C3 !important;
 }
 
 .search-result-highlight {
-  color: #FB039B !important;
+  color: #FF29C3 !important;
 }
 
 .search-result-rel-url {
-  color: #FB039B !important;
+  color: #FF29C3 !important;
 }
 
 .site-button:hover {
-  background-color: #FB039B !important;
+  background-color: #FF29C3 !important;
+}
+
+/* Additional styles for better contrast on black background */
+.site-header {
+  background-color: #111 !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+.side-bar {
+  background-color: #111 !important;
+  border-right: 1px solid #333 !important;
+}
+
+.search-input {
+  background-color: #222 !important;
+  color: white !important;
+  border: 1px solid #444 !important;
+}
+
+code {
+  background-color: #222 !important;
+  border: 1px solid #444 !important;
+  color: #FF29C3 !important;
+}
+
+pre.highlight, .highlight {
+  background-color: #222 !important;
+  color: white !important;
+}
+
+table {
+  border: 1px solid #444 !important;
+}
+
+th, td {
+  border: 1px solid #444 !important;
+  background-color: transparent !important;
+}
+
+th {
+  background-color: #222 !important;
+}
+
+blockquote {
+  border-left: 4px solid #FF29C3 !important;
+  background-color: #222 !important;
+  color: white !important;
 }
