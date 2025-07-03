@@ -19,6 +19,12 @@
   color: inherit !important;
 }
 
+/* Make arrows in side navigation and breadcrumbs pink */
+.nav-list .nav-list-item .nav-list-expander svg,
+.breadcrumb-nav-list-item svg {
+  color: #FB039B !important;
+}
+
 /* Other UI elements with the brand color */
 .btn-primary {
   background-color: #FB039B !important;
