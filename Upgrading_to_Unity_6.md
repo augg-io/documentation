@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Upgrading to Unity 6
-nav_order: 6
-permalink: /Upgrading_to_Unity_6/
+nav_order: 2
+parent: Guides
+permalink: /guides/upgrading_to_unity_6/
 ---
 
 # **Upgrading to Unity 6**
@@ -50,7 +51,7 @@ Refer to the [00 - Create an empty project]({{ site.baseurl }}/getting_started/c
 
 If you don't have ARCore Extensions in your project, you can follow [**this Google tutorial**](https://developers.google.com/ar/develop/unity-arf/getting-started-extensions?ar_foundations_version=4#install_arcore)  to install it.
 
-However if your project has older versions of ARCore Extensions (e.g. 1.39) follow the official [Upgrading ARCoreExtensions in the project]({{ site.baseurl }}/Upgrading_ARCoreExtensions_in_the_project/) manual step by step, **or your build might not work**.
+However if your project has older versions of ARCore Extensions (e.g. 1.39) follow the official [Upgrading ARCoreExtensions in the project]({{ site.baseurl }}/guides/upgrading_arcore_extensions/) manual step by step, **or your build might not work**.
 
 ## **Step 4: Updating Auggio SDK** 
 

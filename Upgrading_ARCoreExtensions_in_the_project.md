@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Upgrading ARCoreExtensions in the project
-nav_order: 7
-permalink: /Upgrading_ARCoreExtensions_in_the_project/
+nav_order: 3
+parent: Guides
+permalink: /guides/upgrading_arcore_extensions/
 ---
 
 # **Upgrading ARCoreExtensions in the project**

@@ -22,9 +22,11 @@ For a complete step-by-step guide, visit our [Getting Started]({{ site.baseurl }
 
 You can check how to use our **Scanning Application** [The Scanning Application]({{ site.baseurl }}/The_Scanning_Application/)
 
-You can check how to use **Collections** for managing dynamic content in your applications. [Using Collections]({{ site.baseurl }}/Using_Collections/)
+For information about the augg.io Content Management System, visit our [CMS]({{ site.baseurl }}/cms/) section:
+- [Using Collections]({{ site.baseurl }}/cms/using_collections/) - Learn how to manage dynamic content in your applications
 
-You can check how to upgrade your augg.io project to **Unity 6** [Upgrading to Unity 6]({{ site.baseurl }}/Upgrading_to_Unity_6/)
-
-You can check how to update the SDK in your project [Updating SDK]({{ site.baseurl }}/Updating_SDK/)
+For guides on upgrading and maintaining your project, visit our [Guides]({{ site.baseurl }}/guides/) section:
+- [How to Update augg.io SDK]({{ site.baseurl }}/guides/updating_sdk/)
+- [Upgrading to Unity 6]({{ site.baseurl }}/guides/upgrading_to_unity_6/)
+- [Upgrading ARCoreExtensions]({{ site.baseurl }}/guides/upgrading_arcore_extensions/)
 

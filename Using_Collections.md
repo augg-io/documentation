@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Using Collections
-nav_order: 4
-permalink: /Using_Collections/
+nav_order: 1
+parent: CMS
+permalink: /cms/using_collections/
 ---
 
 # **Using Collections**
