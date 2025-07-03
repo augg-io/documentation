@@ -40,7 +40,7 @@ The documentation uses a custom logo located at `assets/images/logo.png`. To upd
 
 ### Link Color
 
-The documentation uses a custom link color (#FB039B). This is defined in `assets/css/style.css`.
+The documentation uses a custom link color (#FB039B) for links in the main content, while keeping the sidebar navigation links white. This styling is defined in `assets/css/style.css`.
 
 ## Local Development
 
@@ -54,3 +54,4 @@ To run the documentation locally:
 ## Publishing
 
 The documentation is automatically published to GitHub Pages when changes are pushed to the main branch.
+

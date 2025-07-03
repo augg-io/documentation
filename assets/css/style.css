@@ -1,13 +1,25 @@
 /* Custom styles to override Just the Docs theme */
-a {
+
+/* Apply pink color only to content links, not sidebar navigation */
+.main-content a {
   color: #FB039B !important;
 }
 
-a:hover {
+.main-content a:hover {
   color: #FB039B !important;
   text-decoration: underline;
 }
 
+/* Keep sidebar navigation links white */
+.nav-list a {
+  color: inherit !important;
+}
+
+.nav-list a:hover {
+  color: inherit !important;
+}
+
+/* Other UI elements with the brand color */
 .btn-primary {
   background-color: #FB039B !important;
 }
