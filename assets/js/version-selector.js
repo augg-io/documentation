@@ -86,10 +86,30 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentVersion = 'latest';
     
     // Extract version from path if present
-    const pathMatch = currentPath.match(/\/documentation\/([^\/]+)/);
-    if (pathMatch && versions.includes(pathMatch[1])) {
-      currentVersion = pathMatch[1];
-      console.log('Detected version from URL:', currentVersion);
+    // Use a more flexible approach to extract the version from the path
+    const pathParts = currentPath.split('/').filter(part => part);
+    
+    // Try to find a version in the path parts
+    let foundVersion = false;
+    for (const part of pathParts) {
+      if (versions.includes(part)) {
+        currentVersion = part;
+        console.log('Detected version from URL:', currentVersion);
+        foundVersion = true;
+        break;
+      }
+    }
+    
+    // If no version found in path parts, try the old regex approach as fallback
+    if (!foundVersion) {
+      const pathMatch = isLocalhost
+        ? currentPath.match(/\/([^\/]+)/)
+        : currentPath.match(/\/documentation\/([^\/]+)/);
+        
+      if (pathMatch && versions.includes(pathMatch[1])) {
+        currentVersion = pathMatch[1];
+        console.log('Detected version from URL using regex fallback:', currentVersion);
+      }
     } else if (localStorage.getItem('docs-version')) {
       currentVersion = localStorage.getItem('docs-version');
       console.log('Using version from localStorage:', currentVersion);
@@ -127,24 +147,49 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Get the current page path relative to the version
       let pagePath = '';
-      if (currentPath.includes('/documentation/')) {
-        // Extract the page path after the version
-        const versionRegex = new RegExp(`/documentation/${currentVersion}(/.*)?`);
-        const pageMatch = currentPath.match(versionRegex);
-        if (pageMatch && pageMatch[1]) {
-          pagePath = pageMatch[1];
-        }
+      
+      // Extract the page path after the version using a more flexible approach
+      const pathParts = currentPath.split('/');
+      const versionIndex = pathParts.findIndex(part => part === currentVersion);
+      
+      if (versionIndex !== -1 && versionIndex < pathParts.length - 1) {
+        // Join all parts after the version
+        pagePath = '/' + pathParts.slice(versionIndex + 1).join('/');
+        console.log('Extracted page path:', pagePath);
       } else if (currentPath === '/' || currentPath === '') {
         // If at the root, use empty path
         pagePath = '/';
+      } else {
+        // Fallback to regex approach
+        const baseUrlPart = isLocalhost ? '' : '/documentation';
+        const versionRegex = new RegExp(`${baseUrlPart}/${currentVersion}(/.*)?`);
+        const pageMatch = currentPath.match(versionRegex);
+        if (pageMatch && pageMatch[1]) {
+          pagePath = pageMatch[1];
+          console.log('Extracted page path using regex fallback:', pagePath);
+        }
       }
+      
+      // Get the base URL from a meta tag or use a default
+      const baseUrlMeta = document.querySelector('meta[name="baseurl"]');
+      const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
       
       // Construct the new URL
       const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      const newVersionBase = isLocalhost
-        ? `/${newVersion}`
-        : `/documentation/${newVersion}`;
+      let newVersionBase;
+      
+      if (isLocalhost) {
+        newVersionBase = `/${newVersion}`;
+      } else if (baseUrl) {
+        // If baseUrl is available from meta tag, use it
+        newVersionBase = `${baseUrl}/${newVersion}`;
+      } else {
+        // Fallback to hardcoded path
+        newVersionBase = `/documentation/${newVersion}`;
+      }
+      
       const targetUrl = pagePath ? `${newVersionBase}${pagePath}` : newVersionBase;
+      console.log('Constructed target URL:', targetUrl);
       console.log('Target URL:', targetUrl);
       
       // Check if the page exists in the new version

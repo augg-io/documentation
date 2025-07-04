@@ -8,14 +8,10 @@ nav_order: 99
 
 This page provides information about the current version of the documentation.
 
-## Current Version
+## Documentation Version
 
 <div id="current-version">
-  You are currently viewing the <strong>{{ site.version }}</strong> version of the documentation.
-  
-  {% if site.version == "latest" %}
-  This is the latest version of the documentation.
-  {% endif %}
+  <p>Loading version information...</p>
 </div>
 
 <script>
@@ -24,28 +20,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const baseUrlMeta = document.querySelector('meta[name="baseurl"]');
   const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
   
-  // Get the current version from the URL as a fallback
-  // Extract the version from the path - it should be the last part of the path before the current page
-  const pathParts = window.location.pathname.split('/').filter(part => part);
-  const pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
-  let currentVersion = 'latest';
+  // Get the version from meta tag or URL
+  const versionMeta = document.querySelector('meta[name="version"]');
+  let currentVersion = versionMeta ? versionMeta.getAttribute('content') : 'latest';
   
-  if (pathMatch && pathMatch[1]) {
-    currentVersion = pathMatch[1];
-  }
-  
-  // Check if the version is displayed correctly
-  const versionElement = document.getElementById('current-version');
-  const versionText = versionElement.textContent;
-  
-  if (versionText.includes('**') || versionText.includes('{' + '{')) {
-    // Jekyll template didn't render properly, use JavaScript fallback
-    var versionHtml = 'You are currently viewing the <strong>' + currentVersion + '</strong> version of the documentation.';
-    if (currentVersion === 'latest') {
-      versionHtml += '<p>This is the latest version of the documentation.</p>';
+  // Extract from URL as fallback
+  if (currentVersion === 'latest') {
+    const pathParts = window.location.pathname.split('/').filter(part => part);
+    const pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
+    
+    if (pathMatch && pathMatch[1]) {
+      currentVersion = pathMatch[1];
     }
-    versionElement.innerHTML = versionHtml;
   }
+  
+  // Update the version display
+  const versionElement = document.getElementById('current-version');
+  versionElement.innerHTML = '<p>This documentation is for version <strong>' +
+                            (currentVersion === 'latest' ? 'Latest' : currentVersion) +
+                            '</strong>.</p>';
 });
 </script>
 
@@ -71,39 +64,68 @@ document.addEventListener('DOMContentLoaded', function() {
       // Clear the loading message
       versionList.innerHTML = '';
       
-      // Create a list of available versions
+      // Create a select element similar to the version selector
+      const select = document.createElement('select');
+      select.id = 'version-info-select';
+      
+      versions.forEach(function(version) {
+        const option = document.createElement('option');
+        option.value = version;
+        option.textContent = version === 'latest' ? 'Latest' : version;
+        select.appendChild(option);
+      });
+      
+      // Add change event listener to navigate to the selected version
+      select.addEventListener('change', function() {
+        const newVersion = this.value;
+        const newUrl = baseUrl.replace(/\/[^\/]+$/, '') + '/' + newVersion + '/version-info';
+        window.location.href = newUrl;
+      });
+      
+      // Create a label and wrapper
+      const label = document.createElement('label');
+      label.textContent = 'Available versions: ';
+      label.htmlFor = 'version-info-select';
+      
+      const wrapper = document.createElement('div');
+      wrapper.className = 'version-info-selector';
+      wrapper.appendChild(label);
+      wrapper.appendChild(select);
+      
+      versionList.appendChild(wrapper);
+      
+      // Also add a simple list view of all versions
+      const listHeading = document.createElement('h4');
+      listHeading.textContent = 'All Documentation Versions:';
+      versionList.appendChild(listHeading);
+      
       const ul = document.createElement('ul');
       versions.forEach(function(version) {
-        var li = document.createElement('li');
-        var link = document.createElement('a');
-        
-        // Get the current version from the URL as a fallback
-        // Extract the version from the path - it should be the last part of the path before the current page
-        const pathParts = window.location.pathname.split('/').filter(part => part);
-        var pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
-        var currentVersion = document.querySelector('meta[name="version"]') ?
-                            document.querySelector('meta[name="version"]').getAttribute('content') : 'latest';
-        
-        if (currentVersion === 'latest' && pathMatch && pathMatch[1]) {
-          currentVersion = pathMatch[1];
-        }
-        
-        // Create the link
-        // The baseUrl already includes /documentation, so we just need to add the version
-        link.href = baseUrl.replace(/\/[^\/]+$/, '') + '/' + version + '/version-info';
-        link.textContent = version === 'latest' ? 'Latest' : version;
-        
-        // Highlight the current version
-        if (version === currentVersion) {
-          link.innerHTML = link.innerHTML + ' (current)';
-          link.style.fontWeight = 'bold';
-        }
-        
-        li.appendChild(link);
+        const li = document.createElement('li');
+        li.textContent = version === 'latest' ? 'Latest' : version;
         ul.appendChild(li);
       });
       
       versionList.appendChild(ul);
+      
+      // Set the current version in the select
+      // Get the current version from the URL as a fallback
+      const pathParts = window.location.pathname.split('/').filter(part => part);
+      const pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
+      let currentVersion = document.querySelector('meta[name="version"]') ?
+                          document.querySelector('meta[name="version"]').getAttribute('content') : 'latest';
+      
+      if (currentVersion === 'latest' && pathMatch && pathMatch[1]) {
+        currentVersion = pathMatch[1];
+      }
+      
+      // Set the selected option
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === currentVersion) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
     })
     .catch(error => {
       console.error('Error loading versions:', error);
@@ -112,14 +134,33 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-## Version History
+<style>
+.version-info-selector {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
 
-<div id="version-history">
-  {% if site.version == "latest" %}
-  This is the latest version of the documentation.
-  {% else %}
-  For the latest updates, please check the <a href="{{ site.baseurl | replace: '/latest', '' }}/latest/version-info">latest version</a>.
-  {% endif %}
+.version-info-selector label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.version-info-selector select {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+</style>
+
+## Documentation Updates
+
+<div id="version-updates">
+  <p>
+    The documentation is regularly updated to reflect the latest features and improvements.
+    For the most up-to-date information, always check the <a href="#" id="latest-link">latest version</a>.
+  </p>
 </div>
 
 <script>
@@ -128,29 +169,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const baseUrlMeta = document.querySelector('meta[name="baseurl"]');
   const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
   
-  // Get the current version from the URL as a fallback
-  // Extract the version from the path - it should be the last part of the path before the current page
-  const pathParts = window.location.pathname.split('/').filter(part => part);
-  const pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
-  let currentVersion = 'latest';
-  
-  if (pathMatch && pathMatch[1]) {
-    currentVersion = pathMatch[1];
-  }
-  
-  // Check if the version history needs to be updated
-  const historyElement = document.getElementById('version-history');
-  const historyText = historyElement.textContent;
-  
-  if (historyText.includes('{' + '{') || historyText.includes('{' + '%')) {
-    // Jekyll template didn't render properly, use JavaScript fallback
-    var historyHtml = '';
-    if (currentVersion === 'latest') {
-      historyHtml = 'This is the latest version of the documentation.';
-    } else {
-      historyHtml = 'For the latest updates, please check the <a href="' + baseUrl.replace(/\/[^\/]+$/, '') + '/latest/version-info">latest version</a>.';
-    }
-    historyElement.innerHTML = historyHtml;
+  // Set the latest link
+  const latestLink = document.getElementById('latest-link');
+  if (latestLink) {
+    latestLink.href = baseUrl.replace(/\/[^\/]+$/, '') + '/latest/version-info';
   }
 });
 </script>
