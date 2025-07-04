@@ -21,9 +21,10 @@ To create a new version branch:
 This script:
 1. Creates a new branch named `v1.0.0`
 2. Updates the `_config.yml` file to set the version
-3. Pushes the branch to the remote repository
+3. Creates a version info file to ensure the branch is detected
+4. Commits and pushes the branch to the remote repository
 
-GitHub Actions will automatically build and deploy the new version.
+GitHub Actions will automatically build and deploy the new version, and the new version will appear in the version selector shortly after the workflow completes.
 
 ## Directory Structure
 
@@ -138,3 +139,18 @@ There are some differences between local testing and the actual GitHub Pages dep
 2. **Resource Loading**:
    - The system includes fallback mechanisms to handle both environments
    - Debug information is logged to the console to help diagnose issues
+
+## Diagnostic Tools
+
+If you encounter issues with the version selector or page loading:
+
+1. **Version Selector Test Page**:
+   - A diagnostic HTML page is included at `version-selector-test.html`
+   - This page tests versions.json access and direct URL access
+   - It provides detailed debug information to help diagnose issues
+   - Access it at https://augg-io.github.io/documentation/version-selector-test.html
+
+2. **Browser Console**:
+   - The version selector logs detailed information to the browser console
+   - Open the browser developer tools (F12) and check the Console tab
+   - Look for error messages or debug information about version detection and page loading

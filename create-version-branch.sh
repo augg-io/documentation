@@ -29,12 +29,16 @@ git checkout -b $VERSION
 sed -i.bak "s/version: \"latest\"/version: \"$VERSION\"/" _config.yml
 rm _config.yml.bak
 
+# Create a version info file to ensure the branch is detected
+echo "# Version $VERSION documentation" > version_info.md
+
 # Commit the changes
-git add _config.yml
-git commit -m "Set version to $VERSION"
+git add _config.yml version_info.md
+git commit -m "Set version to $VERSION and add version info"
 
 # Push the branch to the remote repository
 git push -u origin $VERSION
 
 echo "Version branch $VERSION created and pushed to remote repository"
 echo "GitHub Actions will automatically build and deploy this version"
+echo "The new version $VERSION should appear in the version selector shortly"

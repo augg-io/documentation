@@ -169,12 +169,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     selector.appendChild(select);
     
-    // Add the selector to the page
-    const header = document.querySelector('header');
-    if (header) {
-      header.appendChild(selector);
+    // Add the selector to the page in the #site-nav element above .nav-list
+    const siteNav = document.querySelector('#site-nav');
+    const navList = document.querySelector('.nav-list');
+    
+    if (siteNav && navList) {
+      // Insert before the nav-list
+      siteNav.insertBefore(selector, navList);
+      console.log('Added version selector to #site-nav before .nav-list');
+    } else if (siteNav) {
+      // If nav-list not found, just append to site-nav
+      siteNav.appendChild(selector);
+      console.log('Added version selector to #site-nav (nav-list not found)');
     } else {
-      document.body.insertBefore(selector, document.body.firstChild);
+      // Fallback to header or body
+      const header = document.querySelector('header');
+      if (header) {
+        header.appendChild(selector);
+        console.log('Fallback: Added version selector to header');
+      } else {
+        document.body.insertBefore(selector, document.body.firstChild);
+        console.log('Fallback: Added version selector to body');
+      }
     }
   }
   
