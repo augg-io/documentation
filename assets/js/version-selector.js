@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function fetchVersionsJson(urls, index = 0) {
     if (index >= urls.length) {
       console.error('Failed to load versions.json from all locations');
-      // Fallback to hardcoded versions including v1.0.0
-      console.warn('Using hardcoded versions as fallback');
-      createVersionSelector(['latest', 'v1.0.0']);
+      // Fallback to just the latest version
+      console.warn('Using only latest version as fallback');
+      createVersionSelector(['latest']);
       return;
     }
     
@@ -63,12 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(data => {
         const versions = data.versions;
         console.log('Available versions from JSON:', versions);
-        
-        // Force include v1.0.0 if it's not already there (temporary fix)
-        if (versions.indexOf('v1.0.0') === -1) {
-          console.log('Adding v1.0.0 to versions list as it was missing');
-          versions.push('v1.0.0');
-        }
         
         console.log('Final versions list:', versions);
         createVersionSelector(versions);
@@ -116,12 +110,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const select = document.createElement('select');
     select.id = 'version-select';
     
+    console.log('Creating version selector with versions:', versions);
+    
     versions.forEach(version => {
       const option = document.createElement('option');
       option.value = version;
       option.textContent = version === 'latest' ? 'Latest' : version;
       option.selected = version === currentVersion;
       select.appendChild(option);
+      console.log('Added version option:', version);
     });
     
     select.addEventListener('change', function() {
