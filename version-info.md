@@ -89,7 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Create the link
-        link.href = baseUrl + '/' + version + '/version-info';
+        // The baseUrl already includes /documentation, so we just need to add the version
+        link.href = baseUrl.replace(/\/[^\/]+$/, '') + '/' + version + '/version-info';
         link.textContent = version === 'latest' ? 'Latest' : version;
         
         // Highlight the current version
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
   {% if site.version == "latest" %}
   This is the latest version of the documentation.
   {% else %}
-  For the latest updates, please check the <a href="{{ site.baseurl }}/latest/version-info">latest version</a>.
+  For the latest updates, please check the <a href="{{ site.baseurl | replace: '/latest', '' }}/latest/version-info">latest version</a>.
   {% endif %}
 </div>
 
@@ -147,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentVersion === 'latest') {
       historyHtml = 'This is the latest version of the documentation.';
     } else {
-      historyHtml = 'For the latest updates, please check the <a href="' + baseUrl + '/latest/version-info">latest version</a>.';
+      historyHtml = 'For the latest updates, please check the <a href="' + baseUrl.replace(/\/[^\/]+$/, '') + '/latest/version-info">latest version</a>.';
     }
     historyElement.innerHTML = historyHtml;
   }
