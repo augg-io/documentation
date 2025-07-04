@@ -197,24 +197,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     selector.appendChild(select);
     
-    // Add the selector to the page in the #site-nav element above .nav-list
-    const siteNav = document.querySelector('#site-nav');
-    const navList = document.querySelector('.nav-list');
+    // Add the selector to the main header next to the search bar
+    const mainHeader = document.querySelector('#main-header');
+    const searchContainer = document.querySelector('.search');
     
-    if (siteNav && navList) {
-      // Insert before the nav-list
-      siteNav.insertBefore(selector, navList);
-      console.log('Added version selector to #site-nav before .nav-list');
-    } else if (siteNav) {
-      // If nav-list not found, just append to site-nav
-      siteNav.appendChild(selector);
-      console.log('Added version selector to #site-nav (nav-list not found)');
+    if (mainHeader && searchContainer) {
+      // Insert after the search container
+      if (searchContainer.nextSibling) {
+        mainHeader.insertBefore(selector, searchContainer.nextSibling);
+      } else {
+        mainHeader.appendChild(selector);
+      }
+      console.log('Added version selector to #main-header after search');
+    } else if (mainHeader) {
+      // If search container not found, just append to main header
+      mainHeader.appendChild(selector);
+      console.log('Added version selector to #main-header (search not found)');
     } else {
-      // Fallback to header or body
-      const header = document.querySelector('header');
-      if (header) {
-        header.appendChild(selector);
-        console.log('Fallback: Added version selector to header');
+      // Fallback to site header or body
+      const siteHeader = document.querySelector('.site-header');
+      if (siteHeader) {
+        siteHeader.appendChild(selector);
+        console.log('Fallback: Added version selector to site-header');
       } else {
         document.body.insertBefore(selector, document.body.firstChild);
         console.log('Fallback: Added version selector to body');

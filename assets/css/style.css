@@ -29,8 +29,29 @@ a:hover {
 }
 
 /* Make arrows in side navigation pink */
+.nav-list .nav-list-item .nav-list-expander {
+  cursor: pointer !important;
+  padding: 8px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 .nav-list .nav-list-item .nav-list-expander svg {
   color: #FF29C3 !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Fix for child lists that might be hidden by default */
+.nav-list .nav-list-item:not(.active) > .nav-list {
+  display: none !important;
+}
+
+.nav-list .nav-list-item.active > .nav-list {
+  display: block !important;
 }
 
 /* Other UI elements with the brand color */
@@ -52,6 +73,25 @@ a:hover {
 
 .site-nav {
   padding-top: 0px !important;
+}
+
+/* Style for version selector in the header */
+.version-selector {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-right: 16px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Style the select element in the version selector */
+.version-selector select {
+  background-color: #222 !important;
+  color: white !important;
+  border: 1px solid #444 !important;
+  padding: 4px 8px !important;
+  margin-left: 8px !important;
+  border-radius: 4px !important;
 }
 
 #menu-button .icon {
