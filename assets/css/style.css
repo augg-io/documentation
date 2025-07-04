@@ -80,6 +80,8 @@ a:hover {
   display: inline-flex !important;
   align-items: center !important;
   margin-right: 16px !important;
+  border: none !important;
+  background: transparent !important;
 }
 
 /* Style the select element in the version selector */
