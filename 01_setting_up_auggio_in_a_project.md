@@ -8,7 +8,7 @@ permalink: /getting_started/setting_up_auggio_in_a_project/
 
 # **Setting up augg.io in a project**
 
-If you are using example project start with [Setting up Example project]({{ site.baseurl }}/Setting_up_Example_project/) first.
+If you are using example project start with [Setting up Example project]({{ site.baseurl }}/getting_started/Setting_up_Example_project/) first.
 
 ### Setting up ARCore Extensions
 
