@@ -6,39 +6,27 @@ document.addEventListener('DOMContentLoaded', function() {
   // Try to determine the current path to help with fetching versions.json
   let currentPath = window.location.pathname;
   let versionPath = '';
-  let isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   
   console.log('Current path:', currentPath);
-  console.log('Is localhost:', isLocalhost);
   
-  // Different path patterns for local testing vs GitHub Pages
-  const pathMatch = isLocalhost
-    ? currentPath.match(/\/([^\/]+)/)
-    : currentPath.match(/\/documentation\/([^\/]+)/);
+  // Extract version from path
+  const pathMatch = currentPath.match(/\/documentation\/([^\/]+)/);
     
   if (pathMatch) {
-    versionPath = isLocalhost
-      ? `/${pathMatch[1]}`
-      : `/documentation/${pathMatch[1]}`;
+    versionPath = `/documentation/${pathMatch[1]}`;
     console.log('Detected version path:', versionPath);
   }
   
   // Try multiple locations for versions.json
-  let possiblePaths = isLocalhost
-    ? [
-        '/versions.json',
-        `${versionPath}/versions.json`,
-        '/latest/versions.json'
-      ]
-    : [
-        '/documentation/versions.json',
-        `${versionPath}/versions.json`,
-        '/documentation/latest/versions.json',
-        // Try absolute URLs as well
-        'https://augg-io.github.io/documentation/versions.json',
-        'https://augg-io.github.io/documentation/latest/versions.json',
-        `https://augg-io.github.io${versionPath}/versions.json`
-      ];
+  let possiblePaths = [
+    '/documentation/versions.json',
+    `${versionPath}/versions.json`,
+    '/documentation/latest/versions.json',
+    // Try absolute URLs as well
+    'https://augg-io.github.io/documentation/versions.json',
+    'https://augg-io.github.io/documentation/latest/versions.json',
+    `https://augg-io.github.io${versionPath}/versions.json`
+  ];
       
   console.log('Trying these paths for versions.json:', possiblePaths);
   fetchVersionsJson(possiblePaths);
@@ -100,17 +88,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // If no version found in path parts, try the old regex approach as fallback
+    // If no version found in path parts, try the regex approach as fallback
     if (!foundVersion) {
-      const pathMatch = isLocalhost
-        ? currentPath.match(/\/([^\/]+)/)
-        : currentPath.match(/\/documentation\/([^\/]+)/);
+      const pathMatch = currentPath.match(/\/documentation\/([^\/]+)/);
         
       if (pathMatch && versions.includes(pathMatch[1])) {
         currentVersion = pathMatch[1];
         console.log('Detected version from URL using regex fallback:', currentVersion);
       }
-    } else if (localStorage.getItem('docs-version')) {
+    }
+    
+    // If still no version found, try localStorage
+    if (!foundVersion && localStorage.getItem('docs-version')) {
       currentVersion = localStorage.getItem('docs-version');
       console.log('Using version from localStorage:', currentVersion);
     } else {
@@ -161,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pagePath = '/';
       } else {
         // Fallback to regex approach
-        const baseUrlPart = isLocalhost ? '' : '/documentation';
+        const baseUrlPart = '/documentation';
         const versionRegex = new RegExp(`${baseUrlPart}/${currentVersion}(/.*)?`);
         const pageMatch = currentPath.match(versionRegex);
         if (pageMatch && pageMatch[1]) {
@@ -180,12 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Construct the new URL
-      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
       let newVersionBase;
       
-      if (isLocalhost) {
-        newVersionBase = `/${newVersion}`;
-      } else if (baseUrl) {
+      if (baseUrl) {
         // If baseUrl is available from meta tag, use it
         // Make sure we don't have double slashes or version in the baseUrl
         baseUrl = baseUrl.replace(/\/+$/, ''); // Remove trailing slashes
@@ -248,12 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Function to check if a page exists
   function checkPageExists(url) {
-    // For localhost, always return true to avoid CORS issues with HEAD requests
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      console.log('Local testing - skipping page existence check for:', url);
-      return Promise.resolve(true);
-    }
-    
     return fetch(url, { method: 'HEAD' })
       .then(response => {
         console.log('Page existence check for', url, ':', response.ok);

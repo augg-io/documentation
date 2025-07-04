@@ -1,0 +1,47 @@
+title: augg.io docs
+description: Official documentation for the augg.io platform
+baseurl: "/documentation" # set this if publishing to a subdirectory, e.g. "/docs"
+url: "https://augg-io.github.io"
+repository: augg-io/documentation
+version: "latest" # This will be overridden for specific version branches
+
+theme: just-the-docs
+
+# Optional but recommended
+color_scheme: dark # or "light"
+logo: "/assets/images/logo.png"
+
+# SEO / Social sharing
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Enable table of contents in pages
+just_the_docs:
+  # Navigation structure based on existing index.md
+  nav_sort: case_sensitive
+  
+  # Enable features
+  show_last_edit_time: true
+  show_navbar: true
+  search_enabled: true
+  heading_anchors: true
+  aux_links:
+    "GitHub Repo":
+      - "https://github.com/augg-io/documentation"
+
+# Exclude unnecessary files from build
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - sample_gitignore_gitattributes/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
