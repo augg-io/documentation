@@ -20,8 +20,14 @@ This page provides information about the current version of the documentation.
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Get the base URL from a meta tag or use a default
+  const baseUrlMeta = document.querySelector('meta[name="baseurl"]');
+  const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
+  
   // Get the current version from the URL as a fallback
-  const pathMatch = window.location.pathname.match(/\/documentation\/([^\/]+)/);
+  // Extract the version from the path - it should be the last part of the path before the current page
+  const pathParts = window.location.pathname.split('/').filter(part => part);
+  const pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
   let currentVersion = 'latest';
   
   if (pathMatch && pathMatch[1]) {
@@ -32,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const versionElement = document.getElementById('current-version');
   const versionText = versionElement.textContent;
   
-  if (versionText.includes('**') || versionText.includes('{{')) {
+  if (versionText.includes('**') || versionText.includes('{' + '{')) {
     // Jekyll template didn't render properly, use JavaScript fallback
     var versionHtml = 'You are currently viewing the <strong>' + currentVersion + '</strong> version of the documentation.';
     if (currentVersion === 'latest') {
@@ -52,7 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Try to fetch the versions.json file
-  fetch('{{ site.baseurl }}/versions.json')
+  // Get the base URL from a meta tag or use a default
+  const baseUrlMeta = document.querySelector('meta[name="baseurl"]');
+  const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
+  
+  fetch(baseUrl + '/versions.json')
     .then(response => response.json())
     .then(data => {
       const versions = data.versions;
@@ -68,15 +78,18 @@ document.addEventListener('DOMContentLoaded', function() {
         var link = document.createElement('a');
         
         // Get the current version from the URL as a fallback
-        var pathMatch = window.location.pathname.match(/\/documentation\/([^\/]+)/);
-        var currentVersion = '{{ site.version }}';
+        // Extract the version from the path - it should be the last part of the path before the current page
+        const pathParts = window.location.pathname.split('/').filter(part => part);
+        var pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
+        var currentVersion = document.querySelector('meta[name="version"]') ?
+                            document.querySelector('meta[name="version"]').getAttribute('content') : 'latest';
         
-        if ((currentVersion === '{{ site.version }}' || !currentVersion) && pathMatch && pathMatch[1]) {
+        if (currentVersion === 'latest' && pathMatch && pathMatch[1]) {
           currentVersion = pathMatch[1];
         }
         
         // Create the link
-        link.href = '/documentation/' + version + '/version-info';
+        link.href = baseUrl + '/' + version + '/version-info';
         link.textContent = version === 'latest' ? 'Latest' : version;
         
         // Highlight the current version
@@ -104,14 +117,20 @@ document.addEventListener('DOMContentLoaded', function() {
   {% if site.version == "latest" %}
   This is the latest version of the documentation.
   {% else %}
-  For the latest updates, please check the <a href="/documentation/latest/version-info">latest version</a>.
+  For the latest updates, please check the <a href="{{ site.baseurl }}/latest/version-info">latest version</a>.
   {% endif %}
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Get the base URL from a meta tag or use a default
+  const baseUrlMeta = document.querySelector('meta[name="baseurl"]');
+  const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
+  
   // Get the current version from the URL as a fallback
-  const pathMatch = window.location.pathname.match(/\/documentation\/([^\/]+)/);
+  // Extract the version from the path - it should be the last part of the path before the current page
+  const pathParts = window.location.pathname.split('/').filter(part => part);
+  const pathMatch = pathParts.length > 1 ? [null, pathParts[pathParts.length - 2]] : null;
   let currentVersion = 'latest';
   
   if (pathMatch && pathMatch[1]) {
@@ -122,13 +141,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const historyElement = document.getElementById('version-history');
   const historyText = historyElement.textContent;
   
-  if (historyText.includes('{{') || historyText.includes('{%')) {
+  if (historyText.includes('{' + '{') || historyText.includes('{' + '%')) {
     // Jekyll template didn't render properly, use JavaScript fallback
     var historyHtml = '';
     if (currentVersion === 'latest') {
       historyHtml = 'This is the latest version of the documentation.';
     } else {
-      historyHtml = 'For the latest updates, please check the <a href="/documentation/latest/version-info">latest version</a>.';
+      historyHtml = 'For the latest updates, please check the <a href="' + baseUrl + '/latest/version-info">latest version</a>.';
     }
     historyElement.innerHTML = historyHtml;
   }
