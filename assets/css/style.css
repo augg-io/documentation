@@ -73,28 +73,13 @@ a:hover {
 
 .site-nav {
   padding-top: 0px !important;
-  /* Reserve space for the version selector to prevent layout shift */
-  padding-bottom: 40px !important;
 }
 
-/* Style for version selector container and selector */
-.version-selector-container {
-  width: 100% !important;
-  height: 40px !important; /* Fixed height to prevent layout shifts */
-  margin-bottom: 8px !important;
-  display: flex !important;
-  align-items: center !important;
-  background-color: black !important;
-  border-bottom: 1px solid #333 !important;
-}
-
+/* Style for version selector in the header */
 .version-selector {
-  width: 100% !important;
-  padding: 8px 16px !important;
-  box-sizing: border-box !important;
-  background-color: black !important;
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
+  margin-right: 16px !important;
 }
 
 /* Style the select element in the version selector */

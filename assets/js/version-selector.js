@@ -197,44 +197,29 @@ document.addEventListener('DOMContentLoaded', function() {
     
     selector.appendChild(select);
     
-    // Add the selector to the page in the #site-nav element above .nav-list
-    const siteNav = document.querySelector('#site-nav');
-    const navList = document.querySelector('.nav-list');
+    // Add the selector to the main header next to the search bar
+    const mainHeader = document.querySelector('#main-header');
+    const searchContainer = document.querySelector('.search');
     
-    // Create a placeholder div for the version selector if it doesn't exist yet
-    let versionSelectorContainer = document.querySelector('.version-selector-container');
-    if (!versionSelectorContainer) {
-      versionSelectorContainer = document.createElement('div');
-      versionSelectorContainer.className = 'version-selector-container';
-      
-      // Position the container at the top of the navigation
-      if (siteNav && navList) {
-        // Insert before the nav-list
-        siteNav.insertBefore(versionSelectorContainer, navList);
-        console.log('Added version selector container to #site-nav before .nav-list');
-      } else if (siteNav) {
-        // If nav-list not found, just append to site-nav
-        siteNav.insertBefore(versionSelectorContainer, siteNav.firstChild);
-        console.log('Added version selector container to #site-nav (nav-list not found)');
-      } else {
-        // Fallback to header or body
-        const header = document.querySelector('header');
-        if (header) {
-          header.appendChild(versionSelectorContainer);
-          console.log('Fallback: Added version selector container to header');
-        } else {
-          document.body.insertBefore(versionSelectorContainer, document.body.firstChild);
-          console.log('Fallback: Added version selector container to body');
-        }
-      }
+    if (mainHeader && searchContainer) {
+      // Insert before the search container
+      mainHeader.insertBefore(selector, searchContainer);
+      console.log('Added version selector to #main-header before search');
+    } else if (mainHeader) {
+      // If search container not found, just append to main header
+      mainHeader.appendChild(selector);
+      console.log('Added version selector to #main-header (search not found)');
     } else {
-      // Clear existing content if container already exists
-      versionSelectorContainer.innerHTML = '';
+      // Fallback to site header or body
+      const siteHeader = document.querySelector('.site-header');
+      if (siteHeader) {
+        siteHeader.appendChild(selector);
+        console.log('Fallback: Added version selector to site-header');
+      } else {
+        document.body.insertBefore(selector, document.body.firstChild);
+        console.log('Fallback: Added version selector to body');
+      }
     }
-    
-    // Add the selector to the container
-    versionSelectorContainer.appendChild(selector);
-    console.log('Added version selector to container');
   }
   
   // Function to check if a page exists
