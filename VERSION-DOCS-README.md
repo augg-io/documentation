@@ -73,7 +73,13 @@ The GitHub Actions workflow (`.github/workflows/deploy-docs.yml`):
 
 ## Testing Locally
 
-To test the documentation locally:
+### Prerequisites
+
+- Ruby 3.1 or higher (required for Bundler 2.6.2)
+- Jekyll
+- Git
+
+To test a single version locally:
 
 ```bash
 # Install dependencies
@@ -83,4 +89,13 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Note that the version selector will only work fully when deployed, as it requires all versions to be built and available.
+To test the full versioned documentation system locally:
+
+```bash
+# Run the local testing script
+./test-versions-locally.sh
+```
+
+This script builds all versions and starts a local server, allowing you to test the version selector and navigation between versions.
+
+Note: For the full testing experience, you should have at least one version branch created.

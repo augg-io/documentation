@@ -3,6 +3,11 @@
 # Script to test versioned documentation locally
 # This simulates what the GitHub Actions workflow does
 
+# Check Ruby version
+ruby_version=$(ruby -v)
+echo "Using Ruby: $ruby_version"
+echo "Using Bundler: $(bundle -v)"
+
 # Create the output directory
 mkdir -p _site
 
