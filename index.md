@@ -4,6 +4,7 @@ title: Home
 nav_order: 1
 permalink: /
 ---
+# Version: latest
 
 # Getting Started with augg.io
 
