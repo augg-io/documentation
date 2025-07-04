@@ -29,6 +29,10 @@ a:hover {
 }
 
 /* Make arrows in side navigation pink */
+.nav-list .nav-list-item .nav-list-expander {
+  cursor: pointer !important;
+}
+
 .nav-list .nav-list-item .nav-list-expander svg {
   color: #FF29C3 !important;
 }
