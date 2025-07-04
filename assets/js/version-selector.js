@@ -80,12 +80,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Try to find a version in the path parts
     let foundVersion = false;
     for (const part of pathParts) {
-      if (versions.includes(part)) {
+      if (versions.includes(part) && part !== 'latest') {
         currentVersion = part;
         console.log('Detected version from URL:', currentVersion);
         foundVersion = true;
         break;
       }
+    }
+    
+    // Check for 'latest' specifically in the path
+    if (!foundVersion && pathParts.includes('latest')) {
+      currentVersion = 'latest';
+      foundVersion = true;
+      console.log('Detected "latest" version from URL');
     }
     
     // If no version found in path parts, try the regex approach as fallback
@@ -95,18 +102,41 @@ document.addEventListener('DOMContentLoaded', function() {
       if (pathMatch && versions.includes(pathMatch[1])) {
         currentVersion = pathMatch[1];
         console.log('Detected version from URL using regex fallback:', currentVersion);
+        foundVersion = true;
+      }
+    }
+    
+    // If still no version found, try meta tag
+    if (!foundVersion) {
+      const versionMeta = document.querySelector('meta[name="version"]');
+      if (versionMeta) {
+        const metaVersion = versionMeta.getAttribute('content');
+        if (versions.includes(metaVersion)) {
+          currentVersion = metaVersion;
+          console.log('Using version from meta tag:', currentVersion);
+          foundVersion = true;
+        }
       }
     }
     
     // If still no version found, try localStorage
     if (!foundVersion && localStorage.getItem('docs-version')) {
-      currentVersion = localStorage.getItem('docs-version');
-      console.log('Using version from localStorage:', currentVersion);
-    } else {
-      // Default to latest if no version is detected
+      const storedVersion = localStorage.getItem('docs-version');
+      // Only use stored version if it exists in available versions
+      if (versions.includes(storedVersion)) {
+        currentVersion = storedVersion;
+        console.log('Using version from localStorage:', currentVersion);
+        foundVersion = true;
+      }
+    }
+    
+    // Default to latest if no version is detected
+    if (!foundVersion) {
       currentVersion = 'latest';
       console.log('No version detected, defaulting to latest');
     }
+    
+    console.log('Final selected version:', currentVersion);
     
     // Create the selector element
     const selector = document.createElement('div');
