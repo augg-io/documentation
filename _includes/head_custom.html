@@ -44,4 +44,24 @@
     loadJS('{{ site.baseurl }}/assets/js/just-the-docs.js', '/assets/js/just-the-docs.js');
     loadCSS('{{ site.baseurl }}/assets/css/just-the-docs-default.css', '/assets/css/just-the-docs-default.css');
   }
+  
+  // Create a placeholder for the version selector to prevent layout shifts
+  document.addEventListener('DOMContentLoaded', function() {
+    // Only create if it doesn't exist yet
+    if (!document.querySelector('.version-selector-container')) {
+      const siteNav = document.querySelector('#site-nav');
+      if (siteNav) {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'version-selector-container';
+        placeholder.style.height = '40px';
+        
+        const navList = document.querySelector('.nav-list');
+        if (navList) {
+          siteNav.insertBefore(placeholder, navList);
+        } else {
+          siteNav.insertBefore(placeholder, siteNav.firstChild);
+        }
+      }
+    }
+  });
 </script>

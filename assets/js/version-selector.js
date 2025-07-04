@@ -201,25 +201,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const siteNav = document.querySelector('#site-nav');
     const navList = document.querySelector('.nav-list');
     
-    if (siteNav && navList) {
-      // Insert before the nav-list
-      siteNav.insertBefore(selector, navList);
-      console.log('Added version selector to #site-nav before .nav-list');
-    } else if (siteNav) {
-      // If nav-list not found, just append to site-nav
-      siteNav.appendChild(selector);
-      console.log('Added version selector to #site-nav (nav-list not found)');
-    } else {
-      // Fallback to header or body
-      const header = document.querySelector('header');
-      if (header) {
-        header.appendChild(selector);
-        console.log('Fallback: Added version selector to header');
+    // Create a placeholder div for the version selector if it doesn't exist yet
+    let versionSelectorContainer = document.querySelector('.version-selector-container');
+    if (!versionSelectorContainer) {
+      versionSelectorContainer = document.createElement('div');
+      versionSelectorContainer.className = 'version-selector-container';
+      
+      // Position the container at the top of the navigation
+      if (siteNav && navList) {
+        // Insert before the nav-list
+        siteNav.insertBefore(versionSelectorContainer, navList);
+        console.log('Added version selector container to #site-nav before .nav-list');
+      } else if (siteNav) {
+        // If nav-list not found, just append to site-nav
+        siteNav.insertBefore(versionSelectorContainer, siteNav.firstChild);
+        console.log('Added version selector container to #site-nav (nav-list not found)');
       } else {
-        document.body.insertBefore(selector, document.body.firstChild);
-        console.log('Fallback: Added version selector to body');
+        // Fallback to header or body
+        const header = document.querySelector('header');
+        if (header) {
+          header.appendChild(versionSelectorContainer);
+          console.log('Fallback: Added version selector container to header');
+        } else {
+          document.body.insertBefore(versionSelectorContainer, document.body.firstChild);
+          console.log('Fallback: Added version selector container to body');
+        }
       }
+    } else {
+      // Clear existing content if container already exists
+      versionSelectorContainer.innerHTML = '';
     }
+    
+    // Add the selector to the container
+    versionSelectorContainer.appendChild(selector);
+    console.log('Added version selector to container');
   }
   
   // Function to check if a page exists
