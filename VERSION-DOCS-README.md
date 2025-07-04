@@ -75,7 +75,7 @@ The GitHub Actions workflow (`.github/workflows/deploy-docs.yml`):
 
 ### Prerequisites
 
-- Ruby 3.1 or higher (required for Bundler 2.6.2)
+- Ruby 3.2 or higher (required for sass-embedded 1.89.2)
 - Jekyll
 - Git
 
