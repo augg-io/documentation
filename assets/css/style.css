@@ -50,6 +50,10 @@ a:hover {
   width: 75% !important;
 }
 
+.site-nav {
+  padding-top: 0px !important;
+}
+
 #menu-button .icon {
   color: #FF29C3 !important;
 }
