@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Selector Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .version-selector {
+            display: inline-block;
+            margin: 1rem;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 100;
+        }
+        .version-selector span {
+            font-weight: 600;
+            color: #444;
+        }
+        .version-selector select {
+            margin-left: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #f8f9fa;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .debug-info {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow: auto;
+        }
+        .test-buttons {
+            margin: 20px 0;
+        }
+        button {
+            padding: 8px 16px;
+            margin-right: 10px;
+            background-color: #0366d6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0256b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Version Selector Test</h1>
+    
+    <div class="test-buttons">
+        <button onclick="testVersionsJson()">Test versions.json</button>
+        <button onclick="testDirectAccess()">Test Direct URL Access</button>
+        <button onclick="clearDebug()">Clear Debug</button>
+    </div>
+    
+    <div id="version-selector-container">
+        <!-- Version selector will be inserted here -->
+    </div>
+    
+    <h2>Debug Information</h2>
+    <div id="debug" class="debug-info"></div>
+    
+    <script>
+        // Debug logging function
+        function log(message) {
+            const debugElement = document.getElementById('debug');
+            const timestamp = new Date().toISOString();
+            debugElement.innerHTML += `[${timestamp}] ${message}\n`;
+            console.log(message);
+        }
+        
+        function clearDebug() {
+            document.getElementById('debug').innerHTML = '';
+        }
+        
+        // Test versions.json access
+        function testVersionsJson() {
+            log('Testing versions.json access...');
+            
+            const urls = [
+                '/documentation/versions.json',
+                '/documentation/latest/versions.json',
+                'https://augg-io.github.io/documentation/versions.json',
+                'https://augg-io.github.io/documentation/latest/versions.json'
+            ];
+            
+            urls.forEach(url => {
+                log(`Trying to fetch: ${url}`);
+                
+                fetch(url, { cache: 'no-store' })
+                    .then(response => {
+                        log(`Response from ${url}: ${response.status} ${response.statusText}`);
+                        if (!response.ok) {
+                            throw new Error(`HTTP error ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        log(`Success! Data from ${url}:`);
+                        log(JSON.stringify(data, null, 2));
+                    })
+                    .catch(error => {
+                        log(`Error fetching ${url}: ${error.message}`);
+                    });
+            });
+        }
+        
+        // Test direct URL access
+        function testDirectAccess() {
+            log('Testing direct URL access...');
+            
+            const urls = [
+                '/documentation/latest/',
+                '/documentation/v1.0.0/',
+                'https://augg-io.github.io/documentation/latest/',
+                'https://augg-io.github.io/documentation/v1.0.0/'
+            ];
+            
+            urls.forEach(url => {
+                log(`Checking: ${url}`);
+                
+                fetch(url, { method: 'HEAD', cache: 'no-store' })
+                    .then(response => {
+                        log(`Response from ${url}: ${response.status} ${response.statusText}`);
+                    })
+                    .catch(error => {
+                        log(`Error accessing ${url}: ${error.message}`);
+                    });
+            });
+        }
+        
+        // Load version selector script
+        document.addEventListener('DOMContentLoaded', function() {
+            log('Page loaded. Loading version selector script...');
+            
+            // Create a script element to load the version selector
+            const script = document.createElement('script');
+            script.src = '/documentation/assets/js/version-selector.js';
+            script.onerror = function() {
+                log('Error loading version selector script. Trying alternative path...');
+                this.src = '/assets/js/version-selector.js';
+            };
+            document.head.appendChild(script);
+            
+            // Override the createVersionSelector function to insert into our container
+            window.createVersionSelectorOriginal = window.createVersionSelector;
+            window.createVersionSelector = function(versions) {
+                log(`Creating version selector with versions: ${JSON.stringify(versions)}`);
+                
+                // Create the selector element
+                const selector = document.createElement('div');
+                selector.className = 'version-selector';
+                
+                const label = document.createElement('span');
+                label.textContent = 'Version: ';
+                selector.appendChild(label);
+                
+                const select = document.createElement('select');
+                select.id = 'version-select';
+                
+                versions.forEach(version => {
+                    const option = document.createElement('option');
+                    option.value = version;
+                    option.textContent = version === 'latest' ? 'Latest' : version;
+                    select.appendChild(option);
+                });
+                
+                selector.appendChild(select);
+                
+                // Add the selector to our container
+                const container = document.getElementById('version-selector-container');
+                container.innerHTML = '';
+                container.appendChild(selector);
+                
+                log('Version selector created successfully');
+            };
+        });
+    </script>
+</body>
+</html>

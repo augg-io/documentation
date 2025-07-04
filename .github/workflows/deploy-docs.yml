@@ -32,9 +32,19 @@ jobs:
       - name: Get all version branches
         id: get-versions
         run: |
+          echo "Listing all remote branches:"
+          git branch -r
+          
+          echo "Detecting version branches:"
+          git branch -r | grep 'origin/v' || echo "No version branches found"
+          
+          echo "Setting VERSIONS environment variable:"
           echo "VERSIONS<<EOF" >> $GITHUB_ENV
           git branch -r | grep 'origin/v' | sed 's/origin\///' >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+          
+          echo "Current branch:"
+          git branch --show-current
           echo "::set-output name=current_branch::$(git branch --show-current)"
 
       - name: Build main branch (latest)
@@ -80,16 +90,42 @@ jobs:
       - name: Generate version selector data
         run: |
           echo "Creating version selector data"
+          echo "Available versions: latest $VERSIONS"
+          
+          # Create versions.json with proper JSON format
           echo '{"versions":["latest"' > _site/versions.json
           for branch in $VERSIONS; do
             echo ',"'$branch'"' >> _site/versions.json
           done
           echo ']}' >> _site/versions.json
           
+          # Display the content of versions.json
+          echo "Content of versions.json:"
+          cat _site/versions.json
+          
           # Copy versions.json to each version directory for redundancy
+          echo "Copying versions.json to version directories"
           cp _site/versions.json _site/latest/versions.json
+          echo "Copied to latest directory"
+          
           for branch in $VERSIONS; do
-            cp _site/versions.json _site/$branch/versions.json
+            if [ -d "_site/$branch" ]; then
+              cp _site/versions.json _site/$branch/versions.json
+              echo "Copied to $branch directory"
+            else
+              echo "Warning: Directory _site/$branch does not exist"
+            fi
+          done
+          
+          # Create a .nojekyll file in each version directory
+          echo "Creating .nojekyll files in each version directory"
+          touch _site/.nojekyll
+          touch _site/latest/.nojekyll
+          for branch in $VERSIONS; do
+            if [ -d "_site/$branch" ]; then
+              touch _site/$branch/.nojekyll
+              echo "Created .nojekyll in $branch directory"
+            fi
           done
 
       - name: Clean up temporary config files
@@ -121,6 +157,14 @@ jobs:
               echo "Copied files to _site/$branch"
             fi
           done
+          
+      - name: List directory structure before upload
+        run: |
+          echo "Directory structure before upload:"
+          find _site -type d | sort
+          
+          echo "Content of versions.json files:"
+          find _site -name "versions.json" -exec echo {} \; -exec cat {} \;
           
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3

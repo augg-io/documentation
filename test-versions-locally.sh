@@ -98,11 +98,25 @@ done
 
 # Ensure version selector files are in each version
 echo "Ensuring version selector files are in each version..."
-for dir in _site/latest _site/v*; do
-  mkdir -p $dir/assets/js
-  mkdir -p $dir/assets/css
-  cp assets/js/version-selector.js $dir/assets/js/
-  cp assets/css/version-selector.css $dir/assets/css/
+
+# First, ensure latest directory exists and copy files there
+if [ -d "_site/latest" ]; then
+  mkdir -p _site/latest/assets/js
+  mkdir -p _site/latest/assets/css
+  cp assets/js/version-selector.js _site/latest/assets/js/
+  cp assets/css/version-selector.css _site/latest/assets/css/
+  echo "Copied files to _site/latest"
+fi
+
+# Then handle version directories
+for branch in $VERSIONS; do
+  if [ -d "_site/$branch" ]; then
+    mkdir -p _site/$branch/assets/js
+    mkdir -p _site/$branch/assets/css
+    cp assets/js/version-selector.js _site/$branch/assets/js/
+    cp assets/css/version-selector.css _site/$branch/assets/css/
+    echo "Copied files to _site/$branch"
+  fi
 done
 
 # Create a .nojekyll file to prevent GitHub Pages from processing the site

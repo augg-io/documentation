@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     : [
         '/documentation/versions.json',
         `${versionPath}/versions.json`,
-        '/documentation/latest/versions.json'
+        '/documentation/latest/versions.json',
+        // Try absolute URLs as well
+        'https://augg-io.github.io/documentation/versions.json',
+        'https://augg-io.github.io/documentation/latest/versions.json',
+        `https://augg-io.github.io${versionPath}/versions.json`
       ];
       
   console.log('Trying these paths for versions.json:', possiblePaths);
@@ -42,13 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function fetchVersionsJson(urls, index = 0) {
     if (index >= urls.length) {
       console.error('Failed to load versions.json from all locations');
-      // Fallback to hardcoded versions
-      createVersionSelector(['latest']);
+      // Fallback to hardcoded versions including v1.0.0
+      console.warn('Using hardcoded versions as fallback');
+      createVersionSelector(['latest', 'v1.0.0']);
       return;
     }
     
     console.log(`Trying to fetch versions.json from: ${urls[index]}`);
-    fetch(urls[index])
+    fetch(urls[index], { cache: 'no-store' }) // Bypass cache
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error ${response.status}`);
@@ -57,11 +62,25 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(data => {
         const versions = data.versions;
-        console.log('Available versions:', versions);
+        console.log('Available versions from JSON:', versions);
+        
+        // Force include v1.0.0 if it's not already there (temporary fix)
+        if (versions.indexOf('v1.0.0') === -1) {
+          console.log('Adding v1.0.0 to versions list as it was missing');
+          versions.push('v1.0.0');
+        }
+        
+        console.log('Final versions list:', versions);
         createVersionSelector(versions);
       })
       .catch(error => {
         console.error(`Error loading from ${urls[index]}:`, error);
+        
+        // Log more details about the error
+        if (error instanceof TypeError) {
+          console.error('Network error or CORS issue. Make sure the file exists and is accessible.');
+        }
+        
         // Try the next URL
         fetchVersionsJson(urls, index + 1);
       });
