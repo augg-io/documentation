@@ -202,9 +202,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchContainer = document.querySelector('.search');
     
     if (mainHeader && searchContainer) {
-      // Insert before the search container
-      mainHeader.insertBefore(selector, searchContainer);
-      console.log('Added version selector to #main-header before search');
+      // Insert after the search container
+      if (searchContainer.nextSibling) {
+        mainHeader.insertBefore(selector, searchContainer.nextSibling);
+      } else {
+        mainHeader.appendChild(selector);
+      }
+      console.log('Added version selector to #main-header after search');
     } else if (mainHeader) {
       // If search container not found, just append to main header
       mainHeader.appendChild(selector);
