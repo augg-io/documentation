@@ -78,6 +78,9 @@ The GitHub Actions workflow (`.github/workflows/deploy-docs.yml`):
 - Ruby 3.2 or higher (required for sass-embedded 1.89.2)
 - Jekyll
 - Git
+- Python 3 (for the local server)
+
+#### Testing a Single Version
 
 To test a single version locally:
 
@@ -89,6 +92,8 @@ bundle install
 bundle exec jekyll serve
 ```
 
+#### Testing the Full Versioned System
+
 To test the full versioned documentation system locally:
 
 ```bash
@@ -96,6 +101,40 @@ To test the full versioned documentation system locally:
 ./test-versions-locally.sh
 ```
 
-This script builds all versions and starts a local server, allowing you to test the version selector and navigation between versions.
+This script:
+1. Builds the main branch and all version branches with appropriate configuration
+2. Creates the necessary files for version switching
+3. Starts a local HTTP server on port 8000
+
+You can specify a different port if 8000 is already in use:
+
+```bash
+./test-versions-locally.sh --port 8080
+```
+
+#### Troubleshooting Local Testing
+
+If you encounter an "Address already in use" error, you can use the provided script to kill any running Python HTTP servers:
+
+```bash
+./kill-http-servers.sh
+```
+
+If you experience CSS loading issues:
+1. Check the browser console for specific error messages
+2. The script now uses a more robust approach to handle paths in local testing
+3. The version selector includes fallback mechanisms for loading resources
 
 Note: For the full testing experience, you should have at least one version branch created.
+
+#### Differences Between Local Testing and GitHub Pages
+
+There are some differences between local testing and the actual GitHub Pages deployment:
+
+1. **URL Structure**:
+   - Local: `http://localhost:8000/latest/`
+   - GitHub Pages: `https://augg-io.github.io/documentation/latest/`
+
+2. **Resource Loading**:
+   - The system includes fallback mechanisms to handle both environments
+   - Debug information is logged to the console to help diagnose issues
