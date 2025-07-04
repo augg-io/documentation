@@ -40,7 +40,14 @@ jobs:
       - name: Build main branch (latest)
         run: |
           mkdir -p _site/latest
-          bundle exec jekyll build -d _site/latest
+          # Create a temporary config file with updated baseurl
+          echo "Creating temporary config file for latest version..."
+          cp "./_config.yml" "./temp_config_latest.yml"
+          echo "baseurl: \"/documentation/latest\"" >> "./temp_config_latest.yml"
+          
+          # Build with the temporary config
+          bundle exec jekyll build --config "./temp_config_latest.yml" -d _site/latest
+          
           # Note: We're not copying to root as per requirement
 
       - name: Build version branches
@@ -49,7 +56,14 @@ jobs:
             echo "Building documentation for $branch"
             git checkout $branch
             mkdir -p _site/$branch
-            bundle exec jekyll build -d _site/$branch
+            
+            # Create a temporary config file with updated baseurl
+            echo "Creating temporary config file for $branch version..."
+            cp "./_config.yml" "./temp_config_version_$branch.yml"
+            echo "baseurl: \"/documentation/$branch\"" >> "./temp_config_version_$branch.yml"
+            
+            # Build with the temporary config
+            bundle exec jekyll build --config "./temp_config_version_$branch.yml" -d _site/$branch
             
             # Create a .nojekyll file to prevent GitHub Pages from processing the site
             touch _site/$branch/.nojekyll
@@ -71,7 +85,28 @@ jobs:
             echo ',"'$branch'"' >> _site/versions.json
           done
           echo ']}' >> _site/versions.json
+          
+          # Copy versions.json to each version directory for redundancy
+          cp _site/versions.json _site/latest/versions.json
+          for branch in $VERSIONS; do
+            cp _site/versions.json _site/$branch/versions.json
+          done
 
+      - name: Clean up temporary config files
+        run: |
+          echo "Cleaning up temporary config files..."
+          rm -f ./temp_config_*.yml
+          
+      - name: Ensure version selector files are in each version
+        run: |
+          # Copy version selector files to each version directory
+          for dir in _site/latest _site/v*; do
+            mkdir -p $dir/assets/js
+            mkdir -p $dir/assets/css
+            cp assets/js/version-selector.js $dir/assets/js/
+            cp assets/css/version-selector.css $dir/assets/css/
+          done
+          
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,6 +1,42 @@
 <!-- Custom head content -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
-<!-- Version selector -->
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/version-selector.css">
-<script src="{{ site.baseurl }}/assets/js/version-selector.js"></script>
+<!-- Version selector with fallback paths -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/version-selector.css" onerror="this.onerror=null;this.href='/assets/css/version-selector.css';">
+<script src="{{ site.baseurl }}/assets/js/version-selector.js" onerror="this.onerror=null;this.src='/assets/js/version-selector.js';"></script>
+
+<!-- Debug info -->
+<script>
+  console.log('Site baseurl: {{ site.baseurl }}');
+  console.log('Current page: {{ page.url }}');
+  console.log('Window location: ' + window.location.href);
+  
+  // Helper function to dynamically load CSS with fallbacks
+  function loadCSS(url, fallbackUrl) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    link.onerror = function() {
+      console.log('Failed to load CSS: ' + url + ', trying fallback');
+      this.href = fallbackUrl;
+    };
+    document.head.appendChild(link);
+  }
+  
+  // Helper function to dynamically load JS with fallbacks
+  function loadJS(url, fallbackUrl) {
+    var script = document.createElement('script');
+    script.src = url;
+    script.onerror = function() {
+      console.log('Failed to load JS: ' + url + ', trying fallback');
+      this.src = fallbackUrl;
+    };
+    document.head.appendChild(script);
+  }
+  
+  // Try to load theme assets with fallbacks
+  if (typeof just_the_docs === 'undefined') {
+    loadJS('{{ site.baseurl }}/assets/js/just-the-docs.js', '/assets/js/just-the-docs.js');
+    loadCSS('{{ site.baseurl }}/assets/css/just-the-docs-default.css', '/assets/css/just-the-docs-default.css');
+  }
+</script>

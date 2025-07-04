@@ -1,13 +1,71 @@
 // assets/js/version-selector.js
 document.addEventListener('DOMContentLoaded', function() {
   // Fetch available versions
-  fetch('/documentation/versions.json')
-    .then(response => response.json())
-    .then(data => {
-      const versions = data.versions;
-      createVersionSelector(versions);
-    })
-    .catch(error => console.error('Error loading versions:', error));
+  console.log('Version selector initializing...');
+  
+  // Try to determine the current path to help with fetching versions.json
+  let currentPath = window.location.pathname;
+  let versionPath = '';
+  let isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  
+  console.log('Current path:', currentPath);
+  console.log('Is localhost:', isLocalhost);
+  
+  // Different path patterns for local testing vs GitHub Pages
+  const pathMatch = isLocalhost
+    ? currentPath.match(/\/([^\/]+)/)
+    : currentPath.match(/\/documentation\/([^\/]+)/);
+    
+  if (pathMatch) {
+    versionPath = isLocalhost
+      ? `/${pathMatch[1]}`
+      : `/documentation/${pathMatch[1]}`;
+    console.log('Detected version path:', versionPath);
+  }
+  
+  // Try multiple locations for versions.json
+  let possiblePaths = isLocalhost
+    ? [
+        '/versions.json',
+        `${versionPath}/versions.json`,
+        '/latest/versions.json'
+      ]
+    : [
+        '/documentation/versions.json',
+        `${versionPath}/versions.json`,
+        '/documentation/latest/versions.json'
+      ];
+      
+  console.log('Trying these paths for versions.json:', possiblePaths);
+  fetchVersionsJson(possiblePaths);
+  
+  function fetchVersionsJson(urls, index = 0) {
+    if (index >= urls.length) {
+      console.error('Failed to load versions.json from all locations');
+      // Fallback to hardcoded versions
+      createVersionSelector(['latest']);
+      return;
+    }
+    
+    console.log(`Trying to fetch versions.json from: ${urls[index]}`);
+    fetch(urls[index])
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const versions = data.versions;
+        console.log('Available versions:', versions);
+        createVersionSelector(versions);
+      })
+      .catch(error => {
+        console.error(`Error loading from ${urls[index]}:`, error);
+        // Try the next URL
+        fetchVersionsJson(urls, index + 1);
+      });
+  }
 
   function createVersionSelector(versions) {
     // Get current version from URL or localStorage
@@ -18,11 +76,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const pathMatch = currentPath.match(/\/documentation\/([^\/]+)/);
     if (pathMatch && versions.includes(pathMatch[1])) {
       currentVersion = pathMatch[1];
+      console.log('Detected version from URL:', currentVersion);
     } else if (localStorage.getItem('docs-version')) {
       currentVersion = localStorage.getItem('docs-version');
+      console.log('Using version from localStorage:', currentVersion);
     } else {
       // Default to latest if no version is detected
       currentVersion = 'latest';
+      console.log('No version detected, defaulting to latest');
     }
     
     // Create the selector element
@@ -63,8 +124,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Construct the new URL
-      const newVersionBase = `/documentation/${newVersion}`;
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const newVersionBase = isLocalhost
+        ? `/${newVersion}`
+        : `/documentation/${newVersion}`;
       const targetUrl = pagePath ? `${newVersionBase}${pagePath}` : newVersionBase;
+      console.log('Target URL:', targetUrl);
       
       // Check if the page exists in the new version
       checkPageExists(targetUrl)
@@ -96,8 +161,20 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Function to check if a page exists
   function checkPageExists(url) {
+    // For localhost, always return true to avoid CORS issues with HEAD requests
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.log('Local testing - skipping page existence check for:', url);
+      return Promise.resolve(true);
+    }
+    
     return fetch(url, { method: 'HEAD' })
-      .then(response => response.ok)
-      .catch(() => false);
+      .then(response => {
+        console.log('Page existence check for', url, ':', response.ok);
+        return response.ok;
+      })
+      .catch(error => {
+        console.error('Error checking page existence:', error);
+        return false;
+      });
   }
 });
