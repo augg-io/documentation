@@ -25,9 +25,15 @@ git pull origin main
 # Create a new branch
 git checkout -b $VERSION
 
-# Update _config.yml to set the version
-sed -i.bak "s/version: \"latest\"/version: \"$VERSION\"/" _config.yml
+# Create a copy of _config.yml for the version branch
+cp _config.yml _config.yml.tmp
+
+# Update the config file to set the version
+sed -i.bak "s/version: \"latest\"/version: \"$VERSION\"/" _config.yml.tmp
 rm _config.yml.bak
+
+# Replace the original _config.yml with the updated version
+mv _config.yml.tmp _config.yml
 
 # Create a version info file to ensure the branch is detected
 echo "# Version $VERSION documentation" > version_info.md

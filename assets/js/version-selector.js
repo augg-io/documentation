@@ -172,7 +172,12 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Get the base URL from a meta tag or use a default
       const baseUrlMeta = document.querySelector('meta[name="baseurl"]');
-      const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
+      let baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
+      
+      // Ensure baseUrl doesn't include the current version
+      if (baseUrl.includes(`/${currentVersion}`)) {
+        baseUrl = baseUrl.replace(`/${currentVersion}`, '');
+      }
       
       // Construct the new URL
       const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
@@ -182,6 +187,8 @@ document.addEventListener('DOMContentLoaded', function() {
         newVersionBase = `/${newVersion}`;
       } else if (baseUrl) {
         // If baseUrl is available from meta tag, use it
+        // Make sure we don't have double slashes or version in the baseUrl
+        baseUrl = baseUrl.replace(/\/+$/, ''); // Remove trailing slashes
         newVersionBase = `${baseUrl}/${newVersion}`;
       } else {
         // Fallback to hardcoded path
@@ -189,6 +196,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       const targetUrl = pagePath ? `${newVersionBase}${pagePath}` : newVersionBase;
+      console.log('Current version:', currentVersion);
+      console.log('New version:', newVersion);
+      console.log('Base URL:', baseUrl);
       console.log('Constructed target URL:', targetUrl);
       console.log('Target URL:', targetUrl);
       
