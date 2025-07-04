@@ -1,0 +1,72 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history and tags
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Get all version branches
+        id: get-versions
+        run: |
+          echo "VERSIONS<<EOF" >> $GITHUB_ENV
+          git branch -r | grep 'origin/v' | sed 's/origin\///' >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          echo "::set-output name=current_branch::$(git branch --show-current)"
+
+      - name: Build main branch (latest)
+        run: |
+          mkdir -p _site/latest
+          bundle exec jekyll build -d _site/latest
+          # Note: We're not copying to root as per requirement
+
+      - name: Build version branches
+        run: |
+          for branch in $VERSIONS; do
+            echo "Building documentation for $branch"
+            git checkout $branch
+            mkdir -p _site/$branch
+            bundle exec jekyll build -d _site/$branch
+            
+            # Create a .nojekyll file to prevent GitHub Pages from processing the site
+            touch _site/$branch/.nojekyll
+          done
+          
+          # Create a .nojekyll file in the root to prevent GitHub Pages from processing the site
+          touch _site/.nojekyll
+          
+          # Create a redirect from root to /latest
+          echo '<meta http-equiv="refresh" content="0; url=latest/">' > _site/index.html
+          
+          git checkout ${{ steps.get-versions.outputs.current_branch }}
+
+      - name: Generate version selector data
+        run: |
+          echo "Creating version selector data"
+          echo '{"versions":["latest"' > _site/versions.json
+          for branch in $VERSIONS; do
+            echo ',"'$branch'"' >> _site/versions.json
+          done
+          echo ']}' >> _site/versions.json
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+          branch: gh-pages
