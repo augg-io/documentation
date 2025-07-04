@@ -69,71 +69,31 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function createVersionSelector(versions) {
-    // Get current version from URL or localStorage
+    // Force clear localStorage to prevent it from affecting version detection
+    localStorage.removeItem('docs-version');
+    
+    // Get current version from URL
     let currentPath = window.location.pathname;
+    
+    // Always default to 'latest' unless explicitly overridden
     let currentVersion = 'latest';
     
-    // Extract version from path if present
-    // Use a more flexible approach to extract the version from the path
-    const pathParts = currentPath.split('/').filter(part => part);
+    console.log('Current path:', currentPath);
+    console.log('Available versions:', versions);
     
-    // Try to find a version in the path parts
-    let foundVersion = false;
-    for (const part of pathParts) {
-      if (versions.includes(part) && part !== 'latest') {
-        currentVersion = part;
-        console.log('Detected version from URL:', currentVersion);
-        foundVersion = true;
-        break;
+    // Check if we're explicitly in a version path
+    if (currentPath.includes('/documentation/v')) {
+      // Extract version from path
+      const versionMatch = currentPath.match(/\/documentation\/(v[^\/]+)/);
+      if (versionMatch && versions.includes(versionMatch[1])) {
+        currentVersion = versionMatch[1];
+        console.log('Explicitly in version branch:', currentVersion);
       }
     }
-    
-    // Check for 'latest' specifically in the path
-    if (!foundVersion && pathParts.includes('latest')) {
+    // Check if we're explicitly in the latest path
+    else if (currentPath.includes('/documentation/latest/')) {
       currentVersion = 'latest';
-      foundVersion = true;
-      console.log('Detected "latest" version from URL');
-    }
-    
-    // If no version found in path parts, try the regex approach as fallback
-    if (!foundVersion) {
-      const pathMatch = currentPath.match(/\/documentation\/([^\/]+)/);
-        
-      if (pathMatch && versions.includes(pathMatch[1])) {
-        currentVersion = pathMatch[1];
-        console.log('Detected version from URL using regex fallback:', currentVersion);
-        foundVersion = true;
-      }
-    }
-    
-    // If still no version found, try meta tag
-    if (!foundVersion) {
-      const versionMeta = document.querySelector('meta[name="version"]');
-      if (versionMeta) {
-        const metaVersion = versionMeta.getAttribute('content');
-        if (versions.includes(metaVersion)) {
-          currentVersion = metaVersion;
-          console.log('Using version from meta tag:', currentVersion);
-          foundVersion = true;
-        }
-      }
-    }
-    
-    // If still no version found, try localStorage
-    if (!foundVersion && localStorage.getItem('docs-version')) {
-      const storedVersion = localStorage.getItem('docs-version');
-      // Only use stored version if it exists in available versions
-      if (versions.includes(storedVersion)) {
-        currentVersion = storedVersion;
-        console.log('Using version from localStorage:', currentVersion);
-        foundVersion = true;
-      }
-    }
-    
-    // Default to latest if no version is detected
-    if (!foundVersion) {
-      currentVersion = 'latest';
-      console.log('No version detected, defaulting to latest');
+      console.log('Explicitly in latest version');
     }
     
     console.log('Final selected version:', currentVersion);
