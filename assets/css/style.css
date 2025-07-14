@@ -158,35 +158,25 @@ blockquote {
    color: #FF29C3 !important;
 }
 
-/* Mobile-specific styles */
+/* Mobile-specific styles - minimal to preserve theme behavior */
 @media (max-width: 799px) {
   /* Style for the hamburger menu button */
   #menu-button {
     display: inline-block !important;
     cursor: pointer !important;
-    background-color: transparent !important;
-    border: none !important;
-    padding: 8px !important;
   }
   
   #menu-button .icon {
     color: #FF29C3 !important;
-    width: 24px !important;
-    height: 24px !important;
   }
   
-  /* Style for the site navigation */
+  /* Only hide the site-nav by default */
   #site-nav {
     display: none; /* Hidden by default */
-    background-color: black !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 250px !important;
-    height: 100% !important;
-    overflow-y: auto !important;
-    z-index: 99 !important;
-    padding: 16px !important;
-    border-right: 1px solid #333 !important;
+  }
+  
+  /* Let the theme handle the rest */
+  body.nav-open #site-nav {
+    display: block !important;
   }
 }

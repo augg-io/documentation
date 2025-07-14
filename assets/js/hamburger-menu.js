@@ -1,4 +1,4 @@
-// Simple hamburger menu functionality
+// Simple hamburger menu functionality - preserving theme behavior
 document.addEventListener('DOMContentLoaded', function() {
   console.log("Hamburger menu script loaded");
   
@@ -13,39 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       console.log("Hamburger menu button clicked");
       
+      // Toggle the nav-open class on the body
+      document.body.classList.toggle('nav-open');
+      const isOpen = document.body.classList.contains('nav-open');
+      console.log("Nav open state:", isOpen);
+      
       // Find the site-nav element
       const siteNav = document.getElementById('site-nav');
-      
       if (siteNav) {
-        // Toggle the display of the site-nav
-        if (siteNav.style.display === 'block') {
-          siteNav.style.display = 'none';
-          // Remove body class if it exists
-          document.body.classList.remove('nav-open');
-          console.log("Site nav hidden");
-        } else {
-          siteNav.style.display = 'block';
-          // Add body class for potential theme styling
-          document.body.classList.add('nav-open');
-          console.log("Site nav shown");
-        }
-      } else {
-        console.log("Site nav element not found");
-        
-        // Try to find the side-bar as a fallback
-        const sideBar = document.querySelector('.side-bar');
-        if (sideBar) {
-          console.log("Found side-bar element instead");
-          
-          // Toggle the display of the side-bar
-          if (sideBar.style.display === 'block') {
-            sideBar.style.display = 'none';
-            document.body.classList.remove('nav-open');
-          } else {
-            sideBar.style.display = 'block';
-            document.body.classList.add('nav-open');
-          }
-        }
+        // Set display based on nav-open state
+        siteNav.style.display = isOpen ? 'block' : 'none';
       }
     });
   } else {
