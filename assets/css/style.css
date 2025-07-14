@@ -158,8 +158,18 @@ blockquote {
    color: #FF29C3 !important;
 }
 
+/* Ensure site-nav is always visible on non-mobile devices */
+#site-nav {
+  display: block !important;
+}
+
 /* Mobile-specific styles - minimal to preserve theme behavior */
 @media (max-width: 799px) {
+  /* Ensure main-header is visible */
+  .main-header {
+    display: block !important;
+  }
+  
   /* Style for the hamburger menu button */
   #menu-button {
     display: inline-block !important;
@@ -170,9 +180,9 @@ blockquote {
     color: #FF29C3 !important;
   }
   
-  /* Only hide the site-nav by default */
+  /* Only hide the site-nav by default on mobile */
   #site-nav {
-    display: none; /* Hidden by default */
+    display: none !important; /* Hidden by default on mobile */
   }
   
   /* Let the theme handle the rest */
