@@ -157,3 +157,44 @@ blockquote {
 .search-input:focus + .search-label .search-icon {
    color: #FF29C3 !important;
 }
+
+/* Mobile-specific styles */
+@media (max-width: 799px) {
+  /* Ensure main-header is always visible */
+  #main-header {
+    display: block !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    background-color: black !important;
+  }
+  
+  /* Style for the hamburger menu button */
+  #menu-button {
+    display: inline-block !important;
+    cursor: pointer !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 8px !important;
+  }
+  
+  #menu-button .icon {
+    color: #FF29C3 !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  /* Style for the site navigation */
+  #site-nav {
+    display: none; /* Hidden by default */
+    background-color: black !important;
+    position: fixed !important;
+    top: 60px !important; /* Leave space for the header */
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    overflow-y: auto !important;
+    z-index: 99 !important;
+    padding: 16px !important;
+  }
+}
