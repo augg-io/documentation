@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Then handle expander arrows
       setupExpanders();
+      
+      // Handle hamburger menu button for mobile
+      setupHamburgerMenu();
     }
     
     // Function to prevent clicking on already active links
@@ -64,6 +67,38 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
       });
+    }
+    
+    // Function to handle hamburger menu button for mobile
+    function setupHamburgerMenu() {
+      const menuButton = document.querySelector('.js-main-nav-trigger');
+      
+      if (menuButton) {
+        console.log("Found hamburger menu button");
+        
+        // Remove existing click listeners first to avoid conflicts
+        const newMenuButton = menuButton.cloneNode(true);
+        menuButton.parentNode.replaceChild(newMenuButton, menuButton);
+        
+        // Add our custom click handler
+        newMenuButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          console.log("Hamburger menu button clicked");
+          
+          // Toggle the nav-open class on the body element
+          const body = document.querySelector('body');
+          if (body.classList.contains('nav-open')) {
+            body.classList.remove('nav-open');
+            console.log("Mobile menu closed");
+          } else {
+            body.classList.add('nav-open');
+            console.log("Mobile menu opened");
+          }
+        });
+      } else {
+        console.log("Hamburger menu button not found");
+      }
     }
     
     // Run the setup function
