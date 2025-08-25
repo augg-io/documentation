@@ -56,5 +56,5 @@ To run the documentation locally:
 
 ## Publishing
 
-The documentation is automatically published to GitHub Pages when changes are pushed to the main branch.
+The documentation is automatically published to GitHub Pages when changes are pushed to the main branch. 
 
