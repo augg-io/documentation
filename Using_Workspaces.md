@@ -10,8 +10,16 @@ permalink: /cms/using_workspaces/
 
 # **Workspaces in augg.io CMS**
 
-Workspaces let you organize applications, locations, and experiences into separate environments. 
+Workspaces let you organize applications, locations, and experiences into separate environments.  
+This is especially useful when you have many applications, locations, experiences and also multiple people in organization.  
 This guide will walk you through creating and managing workspaces.
+
+### **Why use Workspaces**
+
+Workspaces are especially useful for keeping your content organized when you have many applications, locations, and experiences.  
+You can think of them like folders that group related items together.
+
+Workspaces are also helpful when multiple people in the same organization are working on different projects, since each project can be kept separate in its own workspace.
 
 ## **Creating a Workspace**
 

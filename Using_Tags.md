@@ -11,8 +11,17 @@ permalink: /cms/using_tags/
 # **Tags in augg.io CMS**
 
 Tags allow you to create customizable labels that can be assigned to objects. 
-You can also link tags with collections, which automatically links them to the objects they’re assigned to.
+You can also link tags with collections, which automatically links them to objects they’re assigned to.  
 This guide will walk you through creating, using and managing tags.
+
+### **Why use Tags**
+
+Tags can help you organize and categorize objects in meaningful ways.
+
+**Example:**  
+Suppose you are creating an Easter egg hunt game. Players find eggs of different colors, and each color has a different point value. 
+After placing the eggs, you can create tags that match the egg colors and assign them to the eggs. 
+When the game is over, you can quickly and easily identify which objects (eggs) belonged to which color group thanks to the tags.
 
 ## **Creating Tags**
 
