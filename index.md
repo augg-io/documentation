@@ -24,9 +24,10 @@ You can check how to use our **Scanning Application** [The Scanning Application]
 
 For information about the augg.io Content Management System, visit our [CMS]({{ site.baseurl }}/cms/) section:
 - [Using Collections]({{ site.baseurl }}/cms/using_collections/) - Learn how to manage dynamic content in your applications
-- [Using Workspaces]({{ site.baseurl }}/cms/using_workspaces/) - Learn how to organize multiple applications, locations and experiences using Workspaces
-- [Using Tags]({{ site.baseurl }}/cms/using_tags/) - Learn how to organize and link objects to collections with Tags
-
+- [Using Workspaces]({{ site.baseurl }}/cms/using_workspaces/) - Learn how to organize your content using Workspaces
+- [Using Tags]({{ site.baseurl }}/cms/using_tags/) - Learn how to organize and categorize objects with Tags
+- [Using Organizations]({{ site.baseurl }}/cms/using_organizations/) - Learn how to collaborate using Organizations
+- 
 For guides on upgrading and maintaining your project, visit our [Guides]({{ site.baseurl }}/guides/) section:
 - [How to Update augg.io SDK]({{ site.baseurl }}/guides/updating_sdk/)
 - [Upgrading to Unity 6]({{ site.baseurl }}/guides/upgrading_to_unity_6/)
