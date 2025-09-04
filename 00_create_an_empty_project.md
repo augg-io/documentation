@@ -106,7 +106,7 @@ permalink: /getting_started/create_an_empty_project/
 
 3. Right click in the Hierarchy window. XR \-\> XR Origin (Mobile AR)
 
-4. Select XR Origin. Click add component and add ARAnchorManager (the field can be empty).
+4. Select XR Origin. Click add component and add ARAnchorManager (the field can be empty).  
    ![]({{ site.baseurl }}/images/img_00/image6.png)
 
 ### Setup ARCoreExtension
