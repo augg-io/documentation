@@ -27,9 +27,8 @@ For information about the augg.io Content Management System, visit our [CMS]({{ 
 - [Using Workspaces]({{ site.baseurl }}/cms/using_workspaces/) - Learn how to organize your content using Workspaces
 - [Using Tags]({{ site.baseurl }}/cms/using_tags/) - Learn how to organize and categorize objects with Tags
 - [Using Organizations]({{ site.baseurl }}/cms/using_organizations/) - Learn how to collaborate using Organizations
-- 
+
 For guides on upgrading and maintaining your project, visit our [Guides]({{ site.baseurl }}/guides/) section:
 - [How to Update augg.io SDK]({{ site.baseurl }}/guides/updating_sdk/)
 - [Upgrading to Unity 6]({{ site.baseurl }}/guides/upgrading_to_unity_6/)
 - [Upgrading ARCoreExtensions]({{ site.baseurl }}/guides/upgrading_arcore_extensions/)
-
