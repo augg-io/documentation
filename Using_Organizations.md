@@ -59,7 +59,7 @@ You can manage your organization members from the **Members** tab
 
 ### **Editing Member Roles**
 
-(Feature coming soon)
+To edit member roles, see [Using Roles and Membership]({{ site.baseurl }}/cms/using_roles_and_membership/).
 
 ### **Removing Members**
 
