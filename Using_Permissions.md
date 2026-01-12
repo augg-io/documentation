@@ -19,6 +19,7 @@ The following tables contain every available permission along with a description
 These permissions apply across the entire organization and generally govern administrative settings, billing, and high-level resource management.
 
 #### **Organization**
+
 | Permission | Description |
 | -------- | ------- |
 | organization.billing.manage | Allows user to manage billing of the organization |
@@ -28,6 +29,7 @@ These permissions apply across the entire organization and generally govern admi
 | organization.service_account.manage | Allows user to upload service account to the organization |
 
 #### **Organization Membership**
+
 | Permission | Description |
 | -------- | ------- |
 | organization.membership.grant | Allows user to grant organization entity membership to accounts (e.g., templates) |
@@ -41,6 +43,7 @@ These permissions apply across the entire organization and generally govern admi
 | organization.membership.revoke | Allows user to remove organization entity memberships |
 
 #### **Organization Roles**
+
 | Permission | Description |
 | -------- | ------- |
 | organization.roles.create | Allows user to create organization roles |
@@ -49,6 +52,7 @@ These permissions apply across the entire organization and generally govern admi
 | organization.roles.update | Allows user to update permissions in organization roles |
 
 #### **Organization Members**
+
 | Permission | Description |
 | -------- | ------- |
 | organization.users.add | Allows user to invite users to organization |
@@ -57,6 +61,7 @@ These permissions apply across the entire organization and generally govern admi
 | organization.users.update_roles | Allows user to update any users roles |
 
 #### **Workspaces**
+
 | Permission | Description |
 | -------- | ------- |
 | organization.override_workspace_permissions | Gives user all workspace level permissions |
@@ -66,6 +71,7 @@ These permissions apply across the entire organization and generally govern admi
 | organization.workspaces.read | Allows user to see existing workspaces |
 
 #### **Solutions**
+
 | Permission | Description |
 | -------- | ------- |
 | solution.create_template | Allows user to create templates from solutions |
@@ -73,12 +79,14 @@ These permissions apply across the entire organization and generally govern admi
 | solution.list | Allows user to see existing solutions |
 
 #### **Storage**
+
 | Permission | Description |
 | -------- | ------- |
 | organization.storage.read | Allows user to access stored information (e.g., saved scan mesh) |
 | organization.storage.write | Allows user to upload data to the storage (e.g., uploading scan mesh) |
 
 #### **Templates**
+
 | Permission | Description |
 | -------- | ------- |
 | template.create_application | Allows user to create applications from templates |
@@ -92,6 +100,7 @@ These permissions apply across the entire organization and generally govern admi
 These permissions work on workspace level, mainly on the actual content like locations and experiences.
 
 #### **Anchors**
+
 | Permission | Description |
 | -------- | ------- |
 | anchor.create | Allows user to create anchors |
@@ -99,6 +108,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | anchor.delete | Allows user to delete anchors |
 
 #### **Application Modules**
+
 | Permission | Description |
 | -------- | ------- |
 | application.module.create | Allows user to create application modules |
@@ -107,6 +117,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | application.module.update | Allows user to update application modules information |
 
 #### **Applications**
+
 | Permission | Description |
 | -------- | ------- |
 | application.create | Allows user to create applications |
@@ -115,6 +126,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | application.update | Allows user to update applications information |
 
 #### **Collections**
+
 | Permission | Description |
 | -------- | ------- |
 | collection.create | Allows user to create collections |
@@ -127,6 +139,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | collection.update | Allows user to update collection information |
 
 #### **Experiences**
+
 | Permission | Description |
 | -------- | ------- |
 | experience.create | Allows user to create experiences |
@@ -136,6 +149,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | experience.objects.reassign | Allows user to reassign experience objects |
 
 #### **Locations**
+
 | Permission | Description |
 | -------- | ------- |
 | location.create | Allows user to create locations |
@@ -145,6 +159,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | location.review.clear | Allows user to clear location reviews |
 
 #### **Tags**
+
 | Permission | Description |
 | -------- | ------- |
 | tag.create | Allows user to create tags |
@@ -152,6 +167,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | tag.delete | Allows user to delete tags |
 
 #### **Workspace Membership**
+
 | Permission | Description |
 | -------- | ------- |
 | workspace.membership.grant | Allows user to grant workspace entity membership |
@@ -159,6 +175,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | workspace.membership.read | Allows user to see workspace entity membership |
 
 #### **Workspace Roles**
+
 | Permission | Description |
 | -------- | ------- |
 | workspace.roles.create | Allows user to create workspace roles |
@@ -167,6 +184,7 @@ These permissions work on workspace level, mainly on the actual content like loc
 | workspace.roles.update | Allows user to update workspace roles |
 
 #### **Workspace Members**
+
 | Permission | Description |
 | -------- | ------- |
 | workspace.users.add | Allows user to add user to workspaces |
